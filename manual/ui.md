@@ -36,7 +36,7 @@ The scale is `min(width / board width, height / board height) × UI scale`. The 
 | Grid layout | `layout grid [row\|column]` (the order that fills free cells), `columns` and `rows` with tracks `200` (fixed), `1fr` (a share of the free space), `auto` (fits the content) and `25%` (of the inner size), `gap <row> <column>`, `padding`, `justify` (columns, also `stretch`: auto tracks take the free space), `alignContent` (rows), `justifyItems`, `align`; on a child `cell <row> <column> [<row span> <column span>]` (from 1), `justifySelf`, `alignSelf` |
 | Look | `fill <color>` or `fill linear\|radial x0 y0 x1 y1 <color> <color>`, `stroke <width> <color>`, `radius` (one value or one per corner), `shadow <dx> <dy> <blur> <spread> <color>` (several allowed) |
 | Images | `src ui/icon.png`, `slice <left> <top> <right> <bottom>` (9-slice), `tint <color>` |
-| Text | `key <strings key>` or `content <text>`, `font`, `fontSize`, `color`, `letterSpacing`, `lineHeight`, `textAlign`, `verticalAlign`, `underline`, `strike`, `transform`, `wrap word\|syllable\|none`, `overflow ellipsis`, `maxLines`, `squeeze` (a line wider than the box is squeezed sideways to fit), `span <tag> <property> <value> ...` |
+| Text | `key <strings key>` or `content <text>`, `font`, `fontSize`, `color`, `letterSpacing`, `lineHeight`, `textAlign`, `verticalAlign`, `underline`, `strike`, `transform`, `wrap word\|syllable\|none`, `overflow ellipsis`, `maxLines`, `squeeze` (a line wider than the box is squeezed sideways to fit), `outline <width> [color]` (an outline outside the glyphs; without a color the text's own, which makes it bolder), `span <tag> <property> <value> ...` |
 | States | `on hover\|pressed\|focus\|disabled\|checked <property line>`, `transition <seconds>` |
 | Board lines | `navigation` (keyboard and gamepad focus, for menus), `firstFocus <node>`, `back <action>` |
 | Other | `id <Penpot shape id>` (written by the plugin; the layout check finds nodes by it) |
@@ -139,6 +139,7 @@ for (const mealkit::ui::Action& a : ctx.ui.actions())
 | `offsetField xField yField`, `opacityField field` | Moves the node and its children by two numbers (logical units, after layout), multiplies their opacity by a number from 0 to 1: slides and fades driven from code |
 | `brightness b`, `brightnessField field` | On an image: mixes the picture toward white (b > 0) or black (b < 0), from -1 to 1; also per state (`on hover brightness 0.15`), and the field adds to it |
 | `fontSizeField field` | On text: the font size comes from a number field (logical units) instead of `fontSize` |
+| `outlineField field`, `outlineColorField field` | On text: the outline width (logical units) and color come from fields |
 | `flip horizontal`, `flip vertical` | On an image: mirrors the picture |
 | `button <action>` | Sends the action when clicked or confirmed |
 | `toggle <field>`, `slider <field> <min> <max> <step>`, `select <field> <key1,key2>` | Input widgets write their own field and send `changed` (or the action given after the field). Text inside a select shows the choice with `{option}` |
