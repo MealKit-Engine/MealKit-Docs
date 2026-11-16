@@ -646,6 +646,17 @@ msgid ""
 "On text: the outline width (logical units) and color come from fields"
 msgstr "글자에서: 테두리 폭(논리 단위)과 색을 필드에서 가져온다"
 
+msgid "`squeezeField field`"
+msgstr "`squeezeField field`"
+
+msgid ""
+"On text: every line is drawn narrower sideways by a number field (0 to 1, 1 ="
+" unchanged), for example long numbers at 0.9; with `squeeze`, a line still "
+"wider than the box is then fitted to it"
+msgstr ""
+"글자에서: 모든 줄을 숫자 필드만큼 가로로 줄여 그린다(0~1, 1은 그대로). 예: 긴 숫자를 0.9로. "
+"`squeeze`가 있으면 그래도 상자보다 넓은 줄은 상자에 맞춘다"
+
 msgid "`flip horizontal`, `flip vertical`"
 msgstr "`flip horizontal`, `flip vertical`"
 

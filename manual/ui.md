@@ -140,6 +140,7 @@ for (const mealkit::ui::Action& a : ctx.ui.actions())
 | `brightness b`, `brightnessField field` | On an image: mixes the picture toward white (b > 0) or black (b < 0), from -1 to 1; also per state (`on hover brightness 0.15`), and the field adds to it |
 | `fontSizeField field` | On text: the font size comes from a number field (logical units) instead of `fontSize` |
 | `outlineField field`, `outlineColorField field` | On text: the outline width (logical units) and color come from fields |
+| `squeezeField field` | On text: every line is drawn narrower sideways by a number field (0 to 1, 1 = unchanged), for example long numbers at 0.9; with `squeeze`, a line still wider than the box is then fitted to it |
 | `flip horizontal`, `flip vertical` | On an image: mirrors the picture |
 | `button <action>` | Sends the action when clicked or confirmed |
 | `toggle <field>`, `slider <field> <min> <max> <step>`, `select <field> <key1,key2>` | Input widgets write their own field and send `changed` (or the action given after the field). Text inside a select shows the choice with `{option}` |
