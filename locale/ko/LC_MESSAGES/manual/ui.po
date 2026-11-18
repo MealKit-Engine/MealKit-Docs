@@ -385,6 +385,12 @@ msgstr "`brightness b`, `brightnessField field`"
 msgid "On an image: mixes the picture toward white (b > 0) or black (b < 0), from -1 to 1; also per state (`on hover brightness 0.15`), and the field adds to it"
 msgstr "이미지에서: 그림을 흰색(b > 0)이나 검은색(b < 0) 쪽으로 섞는다(-1~1). 상태마다 줄 수도 있고(`on hover brightness 0.15`), 필드 값은 거기에 더해진다"
 
+msgid "`gradientField field`"
+msgstr "`gradientField field`"
+
+msgid "On an image: multiplies the picture (after its tint) by a horizontal gradient from a string field, `\"<position> <color> <position> <color> ...\"`: positions are fractions of the drawn width from the left edge (stops outside 0 to 1 set the color at the edge), colors are `#rrggbb` or `#rrggbbaa`, any number of stops. Draw a white picture to get exactly the gradient (a name band in each character's colors); an empty string draws the picture as is"
+msgstr "이미지에서: 그림에 (tint 다음에) 문자열 필드의 가로 그라데이션을 곱한다. 형식은 `\"<위치> <색> <위치> <색> ...\"`이고, 위치는 그린 폭에 대한 왼쪽 끝부터의 비율(0~1 밖의 정지점은 끝의 색을 정한다), 색은 `#rrggbb`나 `#rrggbbaa`, 정지점 수는 제한이 없다. 흰 그림에 쓰면 그라데이션이 그대로 나온다(캐릭터마다 색이 다른 이름 띠). 빈 문자열이면 그림을 그대로 그린다"
+
 msgid "`fontSizeField field`"
 msgstr "`fontSizeField field`"
 

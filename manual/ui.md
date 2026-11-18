@@ -138,6 +138,7 @@ for (const mealkit::ui::Action& a : ctx.ui.actions())
 | `scaleField field` | Scales the node's box about its centre by a number (1 = as laid out); world UI templates use it for per-instance sizes |
 | `offsetField xField yField`, `opacityField field` | Moves the node and its children by two numbers (logical units, after layout), multiplies their opacity by a number from 0 to 1: slides and fades driven from code |
 | `brightness b`, `brightnessField field` | On an image: mixes the picture toward white (b > 0) or black (b < 0), from -1 to 1; also per state (`on hover brightness 0.15`), and the field adds to it |
+| `gradientField field` | On an image: multiplies the picture (after its tint) by a horizontal gradient from a string field, `"<position> <color> <position> <color> ..."`: positions are fractions of the drawn width from the left edge (stops outside 0 to 1 set the color at the edge), colors are `#rrggbb` or `#rrggbbaa`, any number of stops. Draw a white picture to get exactly the gradient (a name band in each character's colors); an empty string draws the picture as is |
 | `fontSizeField field` | On text: the font size comes from a number field (logical units) instead of `fontSize` |
 | `outlineField field`, `outlineColorField field` | On text: the outline width (logical units) and color come from fields |
 | `squeezeField field` | On text: every line is drawn narrower sideways by a number field (0 to 1, 1 = unchanged), for example long numbers at 0.9; with `squeeze`, a line still wider than the box is then fitted to it |
