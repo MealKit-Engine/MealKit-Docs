@@ -21,6 +21,23 @@ The shipped exe stays a single static file and never links the editor. Dear ImGu
 - Result: `export\<game>\` (or `export\<game>-<version>\` when `exportVersionFolder` is on in `mealkit.project`) with `<game>.exe`, `<game>.pak`, `build.txt`, `steam_api64.dll` and `THIRD_PARTY_NOTICES.txt` (plus `steam_appid.txt` when the app ID is 480). Distribute the whole folder.
 - `build.txt` records the engine version, the project's git commit (with `+` when files were modified) and the content hash of the pack. `<game>.exe --help` prints it, and bug reports include it.
 
+(build-profiles)=
+## Build profiles
+
+A build profile is a small text file, `profiles/<id>.profile` in the project folder, that names a build configuration and, for an export, the folder it goes to. Commit the files so the whole team builds the same way.
+
+```
+@format profile 1
+label Windows Vulkan
+config VulkanExport
+output export/windows-vulkan
+```
+
+- `config` is any configuration of the build script: `Export` (DirectX 12 on Windows), `VulkanExport` (the same with the Vulkan backend; on Linux it is the same as `Export`), `Release`, `Debug`, `Profile`, `Vulkan` and so on.
+- `output` is only for `Export` and `VulkanExport`: a folder relative to the project (or an absolute one). Leave it out to use `export\<game>`. With a project on its own, a profile's `output` replaces the folder that `exportVersionFolder` would pick.
+- In the editor, **Build Log** shows a profile list and **Build Profile**. If the project has no profiles yet, **Add Default Profiles** writes Windows DX12, Windows Vulkan, Linux Vulkan and Debug; edit the files to change them. **Open Release Folder** opens the selected export profile's output.
+- From the command line: `build.bat profile:windows-vulkan` (Linux: `pwsh build.ps1 profile:linux-vulkan`).
+
 (pack-files)=
 ## Pack files
 
