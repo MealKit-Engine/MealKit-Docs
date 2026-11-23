@@ -317,6 +317,9 @@ msgstr "표는 `MEALKIT_STRUCT`로 선언한 행 타입을 `MEALKIT_TABLE(Row, \
 msgid "**Copy and paste cells**: click a cell to pick it and shift+click another to extend the range (the `id` column counts as the first cell). `Ctrl+C` copies the range as tab-separated text, which Excel and Google Sheets paste as cells, and `Ctrl+V` pastes what they copied starting at the top-left cell of the range. One copied value fills the whole range. Cells that don't accept the text (a word in a number column, a duplicate id) are skipped and counted in the status line, and the rest of the paste still applies. Rows past the end of the table are not added."
 msgstr "**셀 복사·붙여넣기**: 셀을 클릭해 고르고 다른 셀을 Shift+클릭하면 범위가 넓어진다(`id` 열이 첫 번째 셀이다). `Ctrl+C`는 범위를 탭으로 구분한 텍스트로 복사하는데, Excel과 Google 스프레드시트에 붙이면 셀로 들어간다. `Ctrl+V`는 그쪽에서 복사한 내용을 범위의 왼쪽 위 셀부터 붙여 넣는다. 값 하나를 복사했다면 범위 전체가 그 값으로 채워진다. 텍스트를 받지 못하는 셀(숫자 열의 글자, 겹치는 id)은 건너뛰고 상태 줄에 개수를 알리며, 나머지는 그대로 적용된다. 표 끝을 넘는 행은 만들지 않는다."
 
+msgid "**Change numbers by a percentage**: pick a cell range as above, type a percent next to the row filter (`+10` is 10 percent more, `-20` is 20 percent less) and press **Scale Selected**. Only number cells of the range change (integers round to the nearest whole number, times are scaled in seconds); the `id` column, text, choices and colours are left alone. The status line counts what changed, and one undo brings everything back."
+msgstr "**숫자를 퍼센트로 바꾸기**: 위와 같이 셀 범위를 고르고, 행 필터 옆에 퍼센트를 입력한 뒤(`+10`은 10퍼센트 증가, `-20`은 20퍼센트 감소) **선택 셀 비율 조정**을 누른다. 범위 안의 숫자 셀만 바뀌며(정수는 가장 가까운 정수로 반올림하고, 시간은 초 단위로 조정한다), `id` 열, 글자, 선택지, 색은 그대로 둔다. 상태 줄이 바뀐 셀 수를 알려 주고, 되돌리기 한 번이면 전부 돌아온다."
+
 msgid "Rule rows"
 msgstr "규칙 행"
 

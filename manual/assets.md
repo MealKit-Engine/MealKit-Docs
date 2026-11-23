@@ -115,6 +115,8 @@ A table registered with `reflect::kTableView` is display-only and stays out of t
 
 **Copy and paste cells**: click a cell to pick it and shift+click another to extend the range (the `id` column counts as the first cell). `Ctrl+C` copies the range as tab-separated text, which Excel and Google Sheets paste as cells, and `Ctrl+V` pastes what they copied starting at the top-left cell of the range. One copied value fills the whole range. Cells that don't accept the text (a word in a number column, a duplicate id) are skipped and counted in the status line, and the rest of the paste still applies. Rows past the end of the table are not added.
 
+**Change numbers by a percentage**: pick a cell range as above, type a percent next to the row filter (`+10` is 10 percent more, `-20` is 20 percent less) and press **Scale Selected**. Only number cells of the range change (integers round to the nearest whole number, times are scaled in seconds); the `id` column, text, choices and colours are left alone. The status line counts what changed, and one undo brings everything back.
+
 ### Rule rows
 
 With the `objects` source module, designers build map gimmicks from table rows instead of new code. Programmers declare the list of effects (such as a speed multiplier) and a row type with four fields: when (`Enter`, `Inside`, `Exit`, `Timer`), effect, amount and duration. Each row goes in `tables/rules.table`, and a rule zone (an area) or a rule timer placed in the scene picks a row, for example "inside the mud: speed ×0.6". A duration of 0 means the effect lasts while the player is inside, or while the timer is on. The rows are table data in the content hash, so every peer runs them the same way. The module's docs ("Rule rows") show the code to add.
