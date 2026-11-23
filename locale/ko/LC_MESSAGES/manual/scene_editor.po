@@ -226,11 +226,17 @@ msgstr "**기준점**: 이미지에서 오브젝트 위치에 놓이는 점으�
 msgid "**Sheets**: for an image with several frames in a grid, set **Columns, rows** in the inspector. The inspector shows the whole image with the grid; click a cell to show it (cells are counted from the top left, row by row)."
 msgstr "**시트**: 칸으로 나뉜 여러 프레임 그림은 인스펙터에서 **열, 행**을 정한다. 인스펙터에 그림 전체와 칸 격자가 보이고, 칸을 누르면 그 칸을 보여 준다(칸은 왼쪽 위부터 줄마다 센다)."
 
+msgid "**Flipbook clips**: to play frames of a sheet, add a row to `assets/tables/sprite_clips.table` in the **Tables** panel (the row name is the clip name; columns: sheet image, columns, rows, first cell, frame count, frames per second, loop) and pick the name in the sprite's **Flipbook clip** list (or write it in the **Clip** field). The clip replaces the object's own image, sheet and cell. A game's view code can also pick the clip and its start time. The animation follows the view clock, not the simulation, so it is the same on every machine in a match and never changes the content check. The 2D template plays clips in its game view, and MkRender plays the clip on the sprite too (the whole **Play animations** switch pauses it on the first frame)."
+msgstr "**플립북 클립**: 시트의 프레임을 재생하려면 **Tables** 패널에서 `assets/tables/sprite_clips.table`에 행을 더하고(행 이름이 클립 이름이다. 열: 시트 이미지, 열 수, 행 수, 첫 셀, 프레임 수, 초당 프레임, 반복) 스프라이트의 **플립북 클립** 목록에서 그 이름을 고른다(**Clip** 필드에 써도 된다). 클립은 오브젝트 자신의 이미지, 시트, 셀을 대신한다. 게임의 뷰 코드가 클립과 시작 시각을 고를 수도 있다. 애니메이션은 시뮬레이션이 아니라 뷰 시계를 따르므로 매치의 어느 기기에서도 같고 콘텐츠 검사를 바꾸지 않는다. 2D 템플릿은 게임 화면에서 클립을 재생하고, MkRender도 스프라이트에서 클립을 재생한다(**Play animations** 스위치를 끄면 첫 프레임에서 멈춘다)."
+
 msgid "**Pivot buttons**: the 3 × 3 buttons under the sheet set the pivot to a corner, an edge or the centre, placed like the point they pick on the image."
 msgstr "**피벗 버튼**: 시트 아래의 3 × 3 버튼은 피벗을 모서리, 가장자리 가운데 또는 중심으로 정한다. 버튼은 그림에서 고르는 점의 자리에 놓여 있다."
 
 msgid "**2D projects**: a project made from the 2D template (`view2d true` in `mealkit.project`) opens in a flat front view of the x/y plane. The view doesn't turn: right drag pans, `W`/`S` move up and down, and the wheel zooms. The grid lies on the plane, the move gizmo has only x and y, and the rotate gizmo turns only around z."
 msgstr "**2D 프로젝트**: 2D 템플릿으로 만든 프로젝트(`mealkit.project`의 `view2d true`)는 x/y 평면을 정면에서 보는 평평한 뷰로 열린다. 뷰는 돌지 않는다: 오른쪽 드래그는 이동, `W`/`S`는 위아래 이동, 휠은 확대·축소다. 격자는 그 평면에 놓이고, 이동 기즈모는 x와 y만, 회전 기즈모는 z축으로만 돈다."
+
+msgid "**Pixel snapping**: for pixel art, set `camera.pixelsPerUnit` in `assets/view.tuning` (the **Tuning** panel) to the art's pixels per meter. The 2D template's camera then zooms in whole steps, so every art pixel covers the same whole number of screen pixels (the half height you set is rounded to the nearest such zoom), and it moves on the screen-pixel grid. Sprite positions are not snapped. 0 (the default) turns it off; the 2D template sets 16. Game code of your own calls `render::snapPixelView`."
+msgstr "**픽셀 스냅**: 픽셀 아트는 `assets/view.tuning`(**Tuning** 패널)의 `camera.pixelsPerUnit`에 그림의 1m당 픽셀 수를 적는다. 그러면 2D 템플릿의 카메라가 정수 단계로 확대되어 그림의 한 픽셀이 항상 같은 정수 개의 화면 픽셀을 덮고(정한 화면 높이 절반은 가장 가까운 그런 배율로 맞춰진다), 카메라는 화면 픽셀 격자에 맞춰 움직인다. 스프라이트의 위치는 맞추지 않는다. 0(기본)이면 꺼지며, 2D 템플릿은 16으로 정해 두었다. 직접 만든 게임 코드는 `render::snapPixelView`를 부른다."
 
 msgid "Hierarchy marks and handles"
 msgstr "계층 표시와 핸들"

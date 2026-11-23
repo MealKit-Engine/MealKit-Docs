@@ -20,7 +20,7 @@ powershell -ExecutionPolicy Bypass -File tools\new_project.ps1 -Name MyGame -Tem
 `-Template` picks the starting point (the editor's Create New Project window has the same choice):
 
 - `arena` (default) copies the example game's code and `assets/`: a physics party versus game with AI, boxes, jump pads and cutscenes.
-- `empty` starts with one character per player on a floor and goes straight into the match: no menus, no countdown, no rounds. `empty2d` is the same as a side view on a plane.
+- `empty` starts with one character per player on a floor and goes straight into the match: no menus, no countdown, no rounds. `empty2d` is the same as a side view on a plane, drawn with pixel-art sprites (a character that idles and runs, platforms) with pixel snapping on.
 
 `-Modules` adds source modules at once ({doc}`../manual/modules`): `screens` (title, menu, lobby, pause and results screens), `matchflow` (waiting, start countdown, rounds and results) and `camrig` (orbit and zoom, a 2D follow camera), for example `-Modules screens,matchflow`. Each module's `docs/index.md` shows the few lines that connect it to your game. The example game (`arena`) already uses all three.
 

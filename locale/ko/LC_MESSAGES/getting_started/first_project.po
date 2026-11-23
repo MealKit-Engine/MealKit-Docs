@@ -56,8 +56,8 @@ msgstr "`-Template`으로 시작점을 고른다 (에디터의 새 프로젝트 
 msgid "`arena` (default) copies the example game's code and `assets/`: a physics party versus game with AI, boxes, jump pads and cutscenes."
 msgstr "`arena` (기본): 예제 게임의 코드와 `assets/`를 복사한다. AI, 상자, 점프대, 컷신이 있는 물리 파티 대전 게임이다."
 
-msgid "`empty` starts with one character per player on a floor and goes straight into the match: no menus, no countdown, no rounds. `empty2d` is the same as a side view on a plane."
-msgstr "`empty`는 바닥 위에 플레이어마다 캐릭터 하나로 시작하고 바로 매치에 들어간다. 메뉴도, 카운트다운도, 라운드도 없다. `empty2d`는 같은 것을 평면 위 옆모습으로 보여 준다."
+msgid "`empty` starts with one character per player on a floor and goes straight into the match: no menus, no countdown, no rounds. `empty2d` is the same as a side view on a plane, drawn with pixel-art sprites (a character that idles and runs, platforms) with pixel snapping on."
+msgstr "`empty`는 바닥 위에 플레이어마다 캐릭터 하나로 시작하고 바로 매치에 들어간다. 메뉴도, 카운트다운도, 라운드도 없다. `empty2d`는 같은 것을 평면 위 옆모습으로 보여 주며, 픽셀 아트 스프라이트(멈춤과 달리기 동작이 있는 캐릭터, 발판)로 그리고 픽셀 스냅이 켜져 있다."
 
 #, python-brace-format
 msgid "`-Modules` adds source modules at once ({doc}`../manual/modules`): `screens` (title, menu, lobby, pause and results screens), `matchflow` (waiting, start countdown, rounds and results) and `camrig` (orbit and zoom, a 2D follow camera), for example `-Modules screens,matchflow`. Each module's `docs/index.md` shows the few lines that connect it to your game. The example game (`arena`) already uses all three."
