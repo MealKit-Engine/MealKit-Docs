@@ -138,8 +138,8 @@ msgstr "semver 버전. 저장소 태그 `v<버전>`과 같아야 합니다"
 msgid "`engine`"
 msgstr "`engine`"
 
-msgid "Engine `MAJOR.MINOR` the module is made for. Before 1.0 the minor version is the API boundary; the build warns when it differs"
-msgstr "모듈이 맞춰 만든 엔진 `MAJOR.MINOR`. 1.0 전에는 MINOR가 API 경계이고, 다르면 빌드가 경고합니다"
+msgid "Engine `MAJOR.MINOR` the module is made for. The minor version is the API boundary; the build warns when it differs"
+msgstr "모듈이 맞춰 만든 엔진 `MAJOR.MINOR`. MINOR가 API 경계이고, 다르면 빌드가 경고합니다"
 
 msgid "`requires`"
 msgstr "`requires`"
@@ -169,8 +169,8 @@ msgid "Tuning is your own `MEALKIT_STRUCT Tuning` with default values. The game 
 msgstr "튜닝은 기본값을 담은 모듈 자기 `MEALKIT_STRUCT Tuning`입니다. 게임이 자기 `Tuning`에 중첩하므로 `game.tuning`에 들어가고, 화면용 값은 같은 방식으로 `view.tuning`에 들어갑니다. 모듈만의 튜닝 파일은 없습니다."
 
 #, python-brace-format
-msgid "A module includes only the engine's public headers (the list in {engine}`engine/public_headers.txt`, which v1.x keeps source compatible). A module `sim/` file may include the engine core, its own `sim/` and the `sim/` of modules in `requires`. SimCheck reports SIM013 when it includes the game's `source/` and SIM014 when it includes a module that is not in `requires`, on top of the usual simulation rules."
-msgstr "모듈은 엔진의 공개 헤더({engine}`engine/public_headers.txt`의 목록, v1.x 동안 소스 호환을 지킴)만 include합니다. 모듈 `sim/` 파일은 엔진 코어, 자기 `sim/`, `requires`에 있는 모듈의 `sim/`만 include할 수 있습니다. 보통 시뮬레이션 규칙에 더해, 게임 `source/`를 include하면 SimCheck가 SIM013을, `requires`에 없는 모듈을 include하면 SIM014를 냅니다."
+msgid "A module includes only the engine's public headers (the list in {engine}`engine/public_headers.txt`, kept source compatible across PATCH releases). A module `sim/` file may include the engine core, its own `sim/` and the `sim/` of modules in `requires`. SimCheck reports SIM013 when it includes the game's `source/` and SIM014 when it includes a module that is not in `requires`, on top of the usual simulation rules."
+msgstr "모듈은 엔진의 공개 헤더({engine}`engine/public_headers.txt`의 목록, PATCH 릴리스 사이에서 소스 호환을 지킴)만 include합니다. 모듈 `sim/` 파일은 엔진 코어, 자기 `sim/`, `requires`에 있는 모듈의 `sim/`만 include할 수 있습니다. 보통 시뮬레이션 규칙에 더해, 게임 `source/`를 include하면 SimCheck가 SIM013을, `requires`에 없는 모듈을 include하면 SIM014를 냅니다."
 
 msgid "Asset paths are `modules/<name>/<kind>/...` (resolved to `modules/<name>/assets/<kind>/...`). A table example: `MEALKIT_TABLE(ItemDef, \"modules/inventory/tables/items.table\", 0)`."
 msgstr "에셋 경로는 `modules/<이름>/<종류>/...`입니다(`modules/<이름>/assets/<종류>/...`로 풀립니다). 표 예: `MEALKIT_TABLE(ItemDef, \"modules/inventory/tables/items.table\", 0)`."

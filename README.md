@@ -3,7 +3,7 @@
 Source of the documentation for the [MealKit](https://github.com/MealKit-Engine/MealKit) engine.
 Sphinx + MyST (Markdown). English is the source language; Korean is a gettext translation in `locale/ko/LC_MESSAGES/`.
 
-> **Beta (v0.x).** MealKit is under active development: APIs and file formats may change between versions until v1.0, and projects are moved forward with the upgrade tool. Feedback and bug reports are welcome.
+> **Beta (v0.x).** MealKit is under active development: APIs and file formats may change between versions, and projects are moved forward with the upgrade tool. Feedback and bug reports are welcome.
 
 ## Build locally
 
@@ -21,9 +21,8 @@ python -m venv .venv
 
 ## Branches
 
-Before engine 1.0 there is only `master`, which describes the current engine (`ENGINE_VERSION` = the engine's current MINOR).
-Older versions are not kept; the 0.4 documentation is the tag `docs-0.4`. From 1.0, each engine minor version gets a release branch
-(`1.0`, `1.1`, ...) and engine messages link to it. Hosting on Read the Docs starts when the repositories are published.
+There is only `master`, which describes the current engine (`ENGINE_VERSION` = the engine's current MINOR).
+Older versions are not kept; the 0.4 documentation is the tag `docs-0.4`. MealKit stays a 0.x beta, so no per-version branches are planned. Hosting on Read the Docs starts when the repositories are published.
 
 ## License
 

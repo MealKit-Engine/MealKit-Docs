@@ -87,8 +87,8 @@ msgstr "`python tools/build.py check`는 두 언어를 경고 = 오류로 빌드
 msgid "Use the terms in the {doc}`../glossary`, which match the editor's Korean strings (`engine/res/strings/ko.txt`)."
 msgstr "용어는 에디터 한국어 문자열(`engine/res/strings/ko.txt`)과 맞춘 {doc}`../glossary`를 따른다."
 
-msgid "Before engine 1.0 there is one documentation branch, `master`, and `ENGINE_VERSION` must match the engine's `VERSION` (MAJOR.MINOR). Engine messages point to the latest documentation. From 1.0, each engine minor version gets its own documentation branch, and engine messages point to the documentation of their own version."
-msgstr "엔진 1.0 전에는 문서 브랜치가 `master` 하나이고, `ENGINE_VERSION`이 엔진 `VERSION`(MAJOR.MINOR)과 같아야 한다. 엔진 메시지는 최신 문서를 가리킨다. 1.0부터는 엔진 MINOR 버전마다 문서 브랜치가 생기고, 엔진 메시지는 자기 버전의 문서를 가리킨다."
+msgid "There is one documentation branch, `master`, and `ENGINE_VERSION` must match the engine's `VERSION` (MAJOR.MINOR). Engine messages point to the latest documentation. MealKit stays a 0.x beta, so no per-version documentation branches are planned."
+msgstr "문서 브랜치는 `master` 하나이고, `ENGINE_VERSION`이 엔진 `VERSION`(MAJOR.MINOR)과 같아야 한다. 엔진 메시지는 최신 문서를 가리킨다. MealKit은 계속 0.x 베타이므로 버전별 문서 브랜치는 계획하지 않는다."
 
 msgid "Rules that change in the same commit as engine code stay in the engine repository: the roadmap, the decision log, the changelog, `CONTRIBUTING.md`, the coding model with the determinism rules, and `third_party/VERSIONS.txt`. This documentation links to them instead of copying them."
 msgstr "엔진 코드와 같은 커밋에 바뀌는 약속은 엔진 저장소에 둔다: 로드맵, 결정 기록, 변경 기록, `CONTRIBUTING.md`, 결정론 규칙을 포함한 코딩 방식, `third_party/VERSIONS.txt`. 이 문서는 그것을 복사하지 않고 링크한다."

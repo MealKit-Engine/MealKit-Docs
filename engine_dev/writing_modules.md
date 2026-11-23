@@ -45,7 +45,7 @@ requires
 |---|---|
 | `name` | Folder name, C++ namespace and asset path prefix. Lowercase letters, digits and `_`. The registry gives each name to the first module that registers it |
 | `version` | Semantic version. Must match the repository tag `v<version>` |
-| `engine` | Engine `MAJOR.MINOR` the module is made for. Before 1.0 the minor version is the API boundary; the build warns when it differs |
+| `engine` | Engine `MAJOR.MINOR` the module is made for. The minor version is the API boundary; the build warns when it differs |
 | `requires` | Required modules as `name minimum-version`, separated by spaces |
 | `title`, `summary`, `tags` | Shown in lists and search |
 
@@ -55,7 +55,7 @@ requires
 - **A module does not know the game.** System functions take only the module's state, the tick number, the module's tuning and engine core types (`Pool`, `Id`, physics queries). Results go back as return values or as a result array in the module's state, never through callbacks.
 - **A module never runs by itself.** The game puts the state in its `WorldState` and calls the functions from `World::step()`. Write the code to paste in the "Adding" section of your documentation.
 - Tuning is your own `MEALKIT_STRUCT Tuning` with default values. The game nests it in its `Tuning`, so it ends up in `game.tuning`; screen values go the same way in `view.tuning`. There is no tuning file of your own.
-- A module includes only the engine's public headers (the list in {engine}`engine/public_headers.txt`, which v1.x keeps source compatible). A module `sim/` file may include the engine core, its own `sim/` and the `sim/` of modules in `requires`. SimCheck reports SIM013 when it includes the game's `source/` and SIM014 when it includes a module that is not in `requires`, on top of the usual simulation rules.
+- A module includes only the engine's public headers (the list in {engine}`engine/public_headers.txt`, kept source compatible across PATCH releases). A module `sim/` file may include the engine core, its own `sim/` and the `sim/` of modules in `requires`. SimCheck reports SIM013 when it includes the game's `source/` and SIM014 when it includes a module that is not in `requires`, on top of the usual simulation rules.
 - Asset paths are `modules/<name>/<kind>/...` (resolved to `modules/<name>/assets/<kind>/...`). A table example: `MEALKIT_TABLE(ItemDef, "modules/inventory/tables/items.table", 0)`.
 - Games may change your files. Keep components small so that a game can copy one into its own `assets/` instead.
 
