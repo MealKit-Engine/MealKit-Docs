@@ -65,6 +65,14 @@ Copy only the files needed to build into `third_party/<lib>/`, keep its `LICENSE
 The release build merges the notices of MealKit itself, the engine libraries inside the exe, the game libraries and the fonts in `assets/fonts/` into `THIRD_PARTY_NOTICES.txt`, and fails if the exe is larger than 5 MB.
 In the engine repository, `tools\gen_notices.ps1` builds `third_party/VERSIONS.txt` and `THIRD_PARTY_NOTICES.txt` from the same metadata.
 
+## Working in a team with Git
+
+A new project has a `.gitignore` (build and export folders, captures, editor settings) and a `.gitattributes` (line endings and binary files). Commit both with the project.
+
+Git LFS is a recommendation, not the default: it needs `git-lfs` on every machine and many hosts limit LFS storage. Turn it on when `assets/` or `art/` grows past what your host handles: uncomment the `filter=lfs` lines in `.gitattributes` and run `git lfs install` once on each machine.
+
+Scene, prefab and table files are plain text with one key per line, so Git merges them like source code. Two people adding entities at the same place in one scene still conflict. Keep both blocks (each entity starts with `entity`) and open the scene in the editor to check it. Splitting a large scene into several scenes and prefabs avoids most conflicts.
+
 ## Game code folders
 
 Game code is split into three folders. `mealkit_add_game()` collects them by pattern, so adding a file needs no CMake change.
