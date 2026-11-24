@@ -486,8 +486,14 @@ msgstr "하는 일"
 msgid "`new_project.ps1 -Name <name> [-Path <folder>] [-Template <template>] [-Modules <names>]`"
 msgstr "`new_project.ps1 -Name <name> [-Path <folder>] [-Template <template>] [-Modules <names>]`"
 
-msgid "Create a game project from a template (`arena` = the example game, the default; `empty`/`empty2d` = a floor, no menus) and add source modules (`screens,matchflow,camrig`)"
-msgstr "템플릿으로 게임 프로젝트 만들기 (`arena` = 예제 게임, 기본; `empty`/`empty2d` = 바닥, 메뉴 없음) 그리고 소스 모듈 넣기 (`screens,matchflow,camrig`)"
+msgid "Create a game project from a template (`arena` = the example game, the default; `coop` = the co-op example; `empty`/`empty2d` = a floor, no menus; or the git address or folder of another sample repo) and add source modules (`screens,matchflow,camrig`)"
+msgstr "템플릿으로 게임 프로젝트 만들기 (`arena` = 예제 게임, 기본; `coop` = 협동 예제; `empty`/`empty2d` = 바닥, 메뉴 없음; 또는 다른 예제 저장소의 git 주소나 폴더) 그리고 소스 모듈 넣기 (`screens,matchflow,camrig`)"
+
+msgid "`sample.ps1 <command> [name ...]`"
+msgstr "`sample.ps1 <command> [name ...]`"
+
+msgid "The example games in `samples/` (engine repository). Commands: `status`, `sync`, `bump <name> [tag]`, `local on` and `local off`. Compare with, fetch or move the versions pinned in `samples.lock`, or link a sibling checkout (`sample-<name>`) while changing it"
+msgstr "예제 게임(`samples/`, 엔진 저장소). 명령: `status`, `sync`, `bump <name> [tag]`, `local on`, `local off`. `samples.lock`이 고정한 버전과 비교하거나 가져오거나 옮기고, 고치는 동안에는 옆의 체크아웃(`sample-<name>`)을 연결한다"
 
 msgid "`rename_project.ps1 -Project <folder> -Name <name>`"
 msgstr "`rename_project.ps1 -Project <folder> -Name <name>`"

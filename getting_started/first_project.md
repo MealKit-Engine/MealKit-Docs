@@ -5,7 +5,7 @@ Like Godot, MealKit has **one general-purpose editor** that opens many **game pr
 ## Opening the project manager
 
 - Run `editor.bat` in the engine folder (it builds the editor first if needed), or run `build\windows\Editor\bin\MealKitEditor.exe` directly. The project manager opens, similar to Godot's.
-- It offers Create, Import, search and the editor language (Korean/English). In the list you can star a project (favorites), click the icon, the name (= the exe name, `tools\rename_project.ps1`) or the folder path (moves the folder) to change it, and double-click to open the project.
+- It offers Create, Import, search and the editor language (Korean/English). Create shows the templates as cards with a picture and, for the example games, their version; the last card, Sample repo, takes the git address or folder of another sample repo (see below). In the list you can star a project (favorites), click the icon, the name (= the exe name, `tools\rename_project.ps1`) or the folder path (moves the folder) to change it, and double-click to open the project.
 - The icon you pick (`icon.png`, project setting `icon`) becomes the game exe icon in release builds. Without one, the MealKit icon is used.
 - A project folder's `editor.bat` runs `MealKitEditor.exe --project <that folder>`. The engine repository's reference sample `samples/sandbox` opens with `editor.bat sample [scene]` (open `samples/coop` the same way with `--project`).
 
@@ -20,11 +20,14 @@ powershell -ExecutionPolicy Bypass -File tools\new_project.ps1 -Name MyGame -Tem
 `-Template` picks the starting point (the editor's Create New Project window has the same choice):
 
 - `arena` (default) copies the example game's code and `assets/`: a physics party versus game with AI, boxes, jump pads and cutscenes.
+- `coop` copies the co-op third person example the same way.
+- A git address or folder of another sample repo (for example `-Template https://github.com/MealKit-Engine/sample-coop`) copies that sample like `arena`. A git address uses the repo's newest `v*` tag.
 - `empty` starts with one character per player on a floor and goes straight into the match: no menus, no countdown, no rounds. `empty2d` is the same as a side view on a plane, drawn with pixel-art sprites (a character that idles and runs, platforms) with pixel snapping on.
 
 `-Modules` adds source modules at once ({doc}`../manual/modules`): `screens` (title, menu, lobby, pause and results screens), `matchflow` (waiting, start countdown, rounds and results) and `camrig` (orbit and zoom, a 2D follow camera), for example `-Modules screens,matchflow`. Each module's `docs/index.md` shows the few lines that connect it to your game. The example game (`arena`) already uses all three.
 
-Both fill in the files from `templates/project` (`mealkit.project`, `CMakeLists.txt`, `build.bat`, `build.ps1`, `editor.bat`, `.vscode/`, `README.md`, `CLAUDE.md`), and `mealkit.project` records the template in `templateName`.
+Both fill in the files from `templates/project` (`mealkit.project`, `CMakeLists.txt`, `build.bat`, `build.ps1`, `editor.bat`, `.vscode/`, `README.md`, `CLAUDE.md`), and `mealkit.project` records the template in `templateName`. For a project made from an example game, `.mealkit-template` also records which sample, version and commit it came from, and `upgrade_project.ps1 -Source` shows the old and the new version.
+The example games `arena` and `coop` live in their own repos (`sample-sandbox`, `sample-coop`). If the engine's `samples/` folder does not have them yet, `new_project.ps1` fetches the version the engine pins (`tools\sample.ps1 sync`).
 The engine location is the `engine` line in the project's `mealkit.project`, and the engine's `tools\build.ps1` does the actual build (`build.bat` on Windows, `pwsh build.ps1` on Linux and macOS).
 The project's `CMakeLists.txt` includes `cmake/MealKit.cmake` and creates the game exe, the game DLL and the release target with a single `mealkit_add_game(...)`.
 

@@ -19,7 +19,7 @@ There are two kinds of builds:
 - The boundary between the engine and game code is `mealkit::game::GameInstance` (`engine/src/mealkit/game/GameInstance.h`). The game implements it (engine services arrive as `GameContext&`) and exports the editor entry point with `MEALKIT_GAME_MODULE(name, class)`. The release exe's `main` belongs to the engine too: `app/main.cpp` is one line, `MEALKIT_GAME_MAIN(GameSession, Headless)`, and the engine handles the command line (`--help`), window, session, screen services and automated test output. When this contract changes, `kApiVersion` goes up and DLLs with another number are not loaded.
 - The shipped exe uses the game class directly, so there is no DLL boundary cost.
 
-The engine repository's reference samples are game projects in `samples/<name>/`, each with its own `mealkit.project`, code (`sim/`, `view/`, `app/`) and `assets/`: `samples/sandbox` (physics party versus, the template for new projects) and `samples/coop` (co-op third person). The engine build compiles both, and they are the targets of the engine determinism test (`tools\mp_test.ps1`).
+The engine repository's reference samples are game projects in `samples/<name>/`, fetched from their own repos (`sample-sandbox`, `sample-coop`) at the version the engine pins in `samples.lock` (`tools\sample.ps1 status`, `sync`; the first build of the engine repository fetches them), each with its own `mealkit.project`, code (`sim/`, `view/`, `app/`) and `assets/`: `samples/sandbox` (physics party versus, the template for new projects) and `samples/coop` (co-op third person). The engine build compiles both, and they are the targets of the engine determinism test (`tools\mp_test.ps1`).
 
 ## MealKit Manager
 

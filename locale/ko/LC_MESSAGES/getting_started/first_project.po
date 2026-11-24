@@ -29,8 +29,8 @@ msgstr "프로젝트 관리자 열기"
 msgid "Run `editor.bat` in the engine folder (it builds the editor first if needed), or run `build\\windows\\Editor\\bin\\MealKitEditor.exe` directly. The project manager opens, similar to Godot's."
 msgstr "엔진 폴더의 `editor.bat`(에디터가 없으면 먼저 빌드한다)이나 `build\\windows\\Editor\\bin\\MealKitEditor.exe`를 그냥 실행한다. 고도와 비슷한 프로젝트 관리자가 뜬다."
 
-msgid "It offers Create, Import, search and the editor language (Korean/English). In the list you can star a project (favorites), click the icon, the name (= the exe name, `tools\\rename_project.ps1`) or the folder path (moves the folder) to change it, and double-click to open the project."
-msgstr "[만들기]·[가져오기]·검색·에디터 언어(한국어/English)가 있다. 목록에서 별(즐겨찾기), 아이콘·이름(= exe 이름, `tools\\rename_project.ps1`)·폴더 경로(폴더 옮기기)를 눌러 고치고, 더블클릭으로 연다."
+msgid "It offers Create, Import, search and the editor language (Korean/English). Create shows the templates as cards with a picture and, for the example games, their version; the last card, Sample repo, takes the git address or folder of another sample repo (see below). In the list you can star a project (favorites), click the icon, the name (= the exe name, `tools\\rename_project.ps1`) or the folder path (moves the folder) to change it, and double-click to open the project."
+msgstr "[만들기]·[가져오기]·검색·에디터 언어(한국어/English)가 있다. [만들기]는 템플릿을 그림이 있는 카드로 보여 주고, 예제 게임에는 버전도 보여 준다. 마지막 카드 [예제 저장소]에는 다른 예제 저장소의 git 주소나 폴더를 적는다(아래 참고). 목록에서 별(즐겨찾기), 아이콘·이름(= exe 이름, `tools\\rename_project.ps1`)·폴더 경로(폴더 옮기기)를 눌러 고치고, 더블클릭으로 연다."
 
 msgid "The icon you pick (`icon.png`, project setting `icon`) becomes the game exe icon in release builds. Without one, the MealKit icon is used."
 msgstr "고른 아이콘(`icon.png`, 프로젝트 설정 `icon`)은 출시 빌드 때 게임 exe 아이콘이 된다. 없으면 밀키트 아이콘을 쓴다."
@@ -56,6 +56,12 @@ msgstr "`-Template`으로 시작점을 고른다 (에디터의 새 프로젝트 
 msgid "`arena` (default) copies the example game's code and `assets/`: a physics party versus game with AI, boxes, jump pads and cutscenes."
 msgstr "`arena` (기본): 예제 게임의 코드와 `assets/`를 복사한다. AI, 상자, 점프대, 컷신이 있는 물리 파티 대전 게임이다."
 
+msgid "`coop` copies the co-op third person example the same way."
+msgstr "`coop`는 3인칭 협동 예제를 같은 방식으로 복사한다."
+
+msgid "A git address or folder of another sample repo (for example `-Template https://github.com/MealKit-Engine/sample-coop`) copies that sample like `arena`. A git address uses the repo's newest `v*` tag."
+msgstr "다른 예제 저장소의 git 주소나 폴더(예: `-Template https://github.com/MealKit-Engine/sample-coop`)를 주면 그 예제를 `arena`처럼 복사한다. git 주소는 저장소의 가장 새 `v*` 태그를 쓴다."
+
 msgid "`empty` starts with one character per player on a floor and goes straight into the match: no menus, no countdown, no rounds. `empty2d` is the same as a side view on a plane, drawn with pixel-art sprites (a character that idles and runs, platforms) with pixel snapping on."
 msgstr "`empty`는 바닥 위에 플레이어마다 캐릭터 하나로 시작하고 바로 매치에 들어간다. 메뉴도, 카운트다운도, 라운드도 없다. `empty2d`는 같은 것을 평면 위 옆모습으로 보여 주며, 픽셀 아트 스프라이트(멈춤과 달리기 동작이 있는 캐릭터, 발판)로 그리고 픽셀 스냅이 켜져 있다."
 
@@ -63,8 +69,8 @@ msgstr "`empty`는 바닥 위에 플레이어마다 캐릭터 하나로 시작�
 msgid "`-Modules` adds source modules at once ({doc}`../manual/modules`): `screens` (title, menu, lobby, pause and results screens), `matchflow` (waiting, start countdown, rounds and results) and `camrig` (orbit and zoom, a 2D follow camera), for example `-Modules screens,matchflow`. Each module's `docs/index.md` shows the few lines that connect it to your game. The example game (`arena`) already uses all three."
 msgstr "`-Modules`는 소스 모듈을 바로 넣는다({doc}`../manual/modules`): `screens`(타이틀, 메뉴, 로비, 일시 정지, 결과 화면), `matchflow`(대기, 시작 카운트다운, 라운드, 결과), `camrig`(궤도 회전과 줌, 2D 따라가기 카메라). 예: `-Modules screens,matchflow`. 각 모듈의 `docs/index.md`에 게임에 연결하는 몇 줄이 있다. 예제 게임(`arena`)은 셋 다 이미 쓴다."
 
-msgid "Both fill in the files from `templates/project` (`mealkit.project`, `CMakeLists.txt`, `build.bat`, `build.ps1`, `editor.bat`, `.vscode/`, `README.md`, `CLAUDE.md`), and `mealkit.project` records the template in `templateName`. The engine location is the `engine` line in the project's `mealkit.project`, and the engine's `tools\\build.ps1` does the actual build (`build.bat` on Windows, `pwsh build.ps1` on Linux and macOS). The project's `CMakeLists.txt` includes `cmake/MealKit.cmake` and creates the game exe, the game DLL and the release target with a single `mealkit_add_game(...)`."
-msgstr "어느 쪽이든 `templates/project`의 파일(`mealkit.project`, `CMakeLists.txt`, `build.bat`, `build.ps1`, `editor.bat`, `.vscode/`, `README.md`, `CLAUDE.md`)을 채우고, `mealkit.project`의 `templateName`에 템플릿을 적는다. 엔진 위치는 프로젝트 `mealkit.project`의 `engine` 줄에 있고, 실제 빌드는 엔진의 `tools\\build.ps1`이 한다(Windows는 `build.bat`, Linux와 macOS는 `pwsh build.ps1`). 프로젝트 `CMakeLists.txt`는 `cmake/MealKit.cmake`를 include하고 `mealkit_add_game(...)` 한 번으로 게임 exe·게임 DLL·출시 타깃을 만든다."
+msgid "Both fill in the files from `templates/project` (`mealkit.project`, `CMakeLists.txt`, `build.bat`, `build.ps1`, `editor.bat`, `.vscode/`, `README.md`, `CLAUDE.md`), and `mealkit.project` records the template in `templateName`. For a project made from an example game, `.mealkit-template` also records which sample, version and commit it came from, and `upgrade_project.ps1 -Source` shows the old and the new version. The example games `arena` and `coop` live in their own repos (`sample-sandbox`, `sample-coop`). If the engine's `samples/` folder does not have them yet, `new_project.ps1` fetches the version the engine pins (`tools\\sample.ps1 sync`). The engine location is the `engine` line in the project's `mealkit.project`, and the engine's `tools\\build.ps1` does the actual build (`build.bat` on Windows, `pwsh build.ps1` on Linux and macOS). The project's `CMakeLists.txt` includes `cmake/MealKit.cmake` and creates the game exe, the game DLL and the release target with a single `mealkit_add_game(...)`."
+msgstr "어느 쪽이든 `templates/project`의 파일(`mealkit.project`, `CMakeLists.txt`, `build.bat`, `build.ps1`, `editor.bat`, `.vscode/`, `README.md`, `CLAUDE.md`)을 채우고, `mealkit.project`의 `templateName`에 템플릿을 적는다. 예제 게임으로 만든 프로젝트는 `.mealkit-template`에 어느 예제의 어느 버전·커밋에서 왔는지도 적고, `upgrade_project.ps1 -Source`는 이전 버전과 새 버전을 보여 준다. 예제 게임 `arena`와 `coop`는 각자 저장소(`sample-sandbox`, `sample-coop`)에 있다. 엔진의 `samples/` 폴더에 아직 없으면 `new_project.ps1`이 엔진이 고정한 버전을 가져온다(`tools\\sample.ps1 sync`). 엔진 위치는 프로젝트 `mealkit.project`의 `engine` 줄에 있고, 실제 빌드는 엔진의 `tools\\build.ps1`이 한다(Windows는 `build.bat`, Linux와 macOS는 `pwsh build.ps1`). 프로젝트 `CMakeLists.txt`는 `cmake/MealKit.cmake`를 include하고 `mealkit_add_game(...)` 한 번으로 게임 exe·게임 DLL·출시 타깃을 만든다."
 
 msgid "Upgrading a project"
 msgstr "프로젝트 업그레이드"

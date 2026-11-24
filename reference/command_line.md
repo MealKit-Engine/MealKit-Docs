@@ -98,7 +98,8 @@ For example: `MealKitEditor.exe --project . --frames 60 --capture out.png`. The 
 
 | Script | What it does |
 |---|---|
-| `new_project.ps1 -Name <name> [-Path <folder>] [-Template <template>] [-Modules <names>]` | Create a game project from a template (`arena` = the example game, the default; `empty`/`empty2d` = a floor, no menus) and add source modules (`screens,matchflow,camrig`) |
+| `new_project.ps1 -Name <name> [-Path <folder>] [-Template <template>] [-Modules <names>]` | Create a game project from a template (`arena` = the example game, the default; `coop` = the co-op example; `empty`/`empty2d` = a floor, no menus; or the git address or folder of another sample repo) and add source modules (`screens,matchflow,camrig`) |
+| `sample.ps1 <command> [name ...]` | The example games in `samples/` (engine repository). Commands: `status`, `sync`, `bump <name> [tag]`, `local on` and `local off`. Compare with, fetch or move the versions pinned in `samples.lock`, or link a sibling checkout (`sample-<name>`) while changing it |
 | `rename_project.ps1 -Project <folder> -Name <name>` | Rename a project (and its exe) |
 | `upgrade_project.ps1 -Project <folder> [-Source]` | Upgrade a project to the current engine template (`-Source` replaces the game code with the example code, with a backup) |
 | `check.ps1 [-Quick]` | Full check: builds, unit tests, determinism tests, captures |
