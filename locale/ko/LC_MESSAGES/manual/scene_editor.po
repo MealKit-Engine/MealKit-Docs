@@ -256,6 +256,9 @@ msgstr "룩데브"
 msgid "The **Look Dev** tab beside the inspector shows one model on a turning stand under fixed lighting, apart from the scene's lighting: the model clicked in **Assets > Models**, or else the selected object's. Pick a light (Neutral studio, Daylight, Sunset, Night or a `.hdr` from the project) and a lighting model, and try the material's flash and dissolve. Drag the picture to turn the stand and tilt the camera; the wheel zooms."
 msgstr "인스펙터 옆의 **룩데브** 탭은 씬 조명과 상관없이 고정 조명 아래 도는 받침대에 모델 하나를 보여 준다: **에셋 > 모델**에서 누른 모델, 없으면 선택한 오브젝트의 모델이다. 조명(중립 스튜디오, 한낮, 노을, 밤 또는 프로젝트의 `.hdr`)과 조명 모델을 고르고, 머티리얼의 번쩍임과 디졸브를 시험해 볼 수 있다. 그림을 끌면 받침대가 돌고 카메라가 기울며, 휠은 확대·축소다."
 
+msgid "The **Materials** page of the Look Dev tab lists the shown model's materials, read only. Click a material to tint its triangles in the picture (click again to clear) and see its factors, the size and format of each texture, its style features (outline, wind, rim, dissolve), the glTF meshes that use it, and what loading ignored (for example clearcoat or a second UV set, marked with `!` in the list). Values are changed in Blender, not here."
+msgstr "룩데브 탭의 **머티리얼** 페이지는 보고 있는 모델의 머티리얼을 읽기 전용으로 나열한다. 머티리얼을 누르면 그림에서 그 삼각형이 강조되고(다시 누르면 해제), 계수, 텍스처별 크기와 형식, 스타일 기능(외곽선, 바람, 림, 디졸브), 그것을 쓰는 glTF 메시, 불러올 때 무시된 항목(예: 클리어코트, 두 번째 UV 세트. 목록에 `!`로 표시)을 볼 수 있다. 값은 여기가 아니라 Blender에서 바꾼다."
+
 msgid "Environment"
 msgstr "환경"
 

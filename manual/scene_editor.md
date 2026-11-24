@@ -90,6 +90,8 @@ A sprite is an image placed in the world, the way 2D games draw characters, back
 
 The **Look Dev** tab beside the inspector shows one model on a turning stand under fixed lighting, apart from the scene's lighting: the model clicked in **Assets > Models**, or else the selected object's. Pick a light (Neutral studio, Daylight, Sunset, Night or a `.hdr` from the project) and a lighting model, and try the material's flash and dissolve. Drag the picture to turn the stand and tilt the camera; the wheel zooms.
 
+The **Materials** page of the Look Dev tab lists the shown model's materials, read only. Click a material to tint its triangles in the picture (click again to clear) and see its factors, the size and format of each texture, its style features (outline, wind, rim, dissolve), the glTF meshes that use it, and what loading ignored (for example clearcoat or a second UV set, marked with `!` in the list). Values are changed in Blender, not here.
+
 ## Environment
 
 The **Environment** window edits the open scene's sun, sky, fog, sky HDRI and post processing ({doc}`assets`).
