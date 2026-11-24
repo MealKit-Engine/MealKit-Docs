@@ -209,13 +209,13 @@ The tick input is 8 bytes per player (`net::kInputBytes`). The example packs it 
 After changing `sim/`, check that it stays deterministic:
 
 ```bat
-build\Release\bin\<name>.exe --bot --exit-tick 900 --shadow --rewind-test --vsync 0
+build\windows\Release\bin\<name>.exe --bot --exit-tick 900 --shadow --rewind-test --vsync 0
 ```
 
 It prints `SHADOW ok` (a second world with the same inputs got the same hash on every tick) and `REWIND ok` (rewinding and replaying reached the same state). Then run the multiplayer test from the engine folder:
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File tools\mp_test.ps1 -Exe <project>\build\Release\bin\<name>.exe -Clients 3 -Ticks 900
+powershell -ExecutionPolicy Bypass -File tools\mp_test.ps1 -Exe <project>\build\windows\Release\bin\<name>.exe -Clients 3 -Ticks 900
 ```
 
 When the shadow check fails, it stops and logs the first tick that differs and the state fields that differ. The usual causes are a member that is not declared with `MEALKIT_FIELD`, a value left uninitialized, iteration over a hash map or pointers, or code reading something outside the simulation.
@@ -239,7 +239,7 @@ tick 900 pawns[0].position.y > -5
 - `tick <n> <path> <op> <value>` checks the state after that tick. A tick ending in `s` is in seconds. Paths are `WorldState` fields as the [State] panel shows them: `a.b`, `array[2]`, `pool[slot]`.
 - `==` and `!=` work on any value, written as in tuning files (enum names, `x y z`); `<`, `<=`, `>`, `>=` need numbers.
 
-Run one with `build\Release\bin\<name>_headless.exe --test tests\push.scenario`. It prints `SCENARIO ok` or a `SCENARIO FAIL` line per failed check, and exits with code 6 on failure.
+Run one with `build\windows\Release\bin\<name>_headless.exe --test tests\push.scenario`. It prints `SCENARIO ok` or a `SCENARIO FAIL` line per failed check, and exits with code 6 on failure.
 When you change the results on purpose, `--update-expected` rewrites the `==` values with the current results; review the diff before committing.
 
 During solo play in the editor, **Save Scenario** in the play bar saves the inputs so far as `tests/scenarioN.rec` plus a `tests/scenarioN.scenario` with the current top-level state values. Keep the checks that state your rule and delete the rest. Solo play must keep replays (`keepReplays` in project settings).

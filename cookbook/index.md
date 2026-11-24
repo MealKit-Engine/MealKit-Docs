@@ -14,8 +14,8 @@ event_feedback
 ## Test multiplayer on one PC
 
 1. Build the Release game: `build.bat`.
-2. Start a host that listens only on this PC: `build\Release\bin\sandbox.exe --host --local`.
-3. Start one or more clients: `build\Release\bin\sandbox.exe --join 127.0.0.1`.
+2. Start a host that listens only on this PC: `build\windows\Release\bin\sandbox.exe --host --local`.
+3. Start one or more clients: `build\windows\Release\bin\sandbox.exe --join 127.0.0.1`.
 4. Press Enter in the host's lobby to start the match.
 
 To check automatically that all peers stay in sync, run the determinism test. It starts one host and N bot clients and compares the state hash of every peer:

@@ -24,7 +24,7 @@ Feedback table
 : `assets/feedback.table`: rows that turn tick events into sounds, camera shake, screen flash and hit stop. Edited in the editor's Feedback panel.
 
 Export (release build)
-: Making the release folder `export/<game>/` that is given to players.
+: Making the release folder `export/<os>/<game>/` that is given to players.
 
 Game DLL
 : The game code built for the editor (`<game>_game.dll`). The editor loads a copy and swaps it in when it changes (hot reload).

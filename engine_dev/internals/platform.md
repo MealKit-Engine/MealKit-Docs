@@ -84,7 +84,7 @@ XInput was chosen over SDL3 because SDL3's gamepad support alone would take abou
 1. When a project root is set (`setProjectRoot`), it looks **only** in that folder.
 2. Otherwise it looks in the executable's folder and up to five folders above it, then in the current folder.
 
-Step 2 lets a development build in `build\Release\bin` find the repository's `assets` folder without copying it. Step 1 exists for the editor: `MealKitEditor.exe` lives inside the engine repository, so without a root it would find the engine's own `assets` instead of the open project's (see {doc}`editor`).
+Step 2 lets a development build in `build\windows\Release\bin` find the repository's `assets` folder without copying it. Step 1 exists for the editor: `MealKitEditor.exe` lives inside the engine repository, so without a root it would find the engine's own `assets` instead of the open project's (see {doc}`editor`).
 
 ### Reading and writing
 

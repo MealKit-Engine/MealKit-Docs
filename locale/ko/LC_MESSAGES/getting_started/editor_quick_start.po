@@ -48,10 +48,10 @@ msgstr ""
 
 msgid ""
 "**Ctrl+R**: build the game code (hot reload). **Ctrl+B**: release build "
-"(`export/<game>/`). The Build menu can also open the release and project "
+"(`export/<os>/<game>/`). The Build menu can also open the release and project "
 "folders."
 msgstr ""
-"**Ctrl+R**: 게임 코드 빌드 (핫 리로드). **Ctrl+B**: 출시 빌드 (`export/<게임>/`). 빌드 메뉴에서 "
+"**Ctrl+R**: 게임 코드 빌드 (핫 리로드). **Ctrl+B**: 출시 빌드 (`export/<os>/<게임>/`). 빌드 메뉴에서 "
 "출시·프로젝트 폴더를 열 수도 있다."
 
 #, python-brace-format

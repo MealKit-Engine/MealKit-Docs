@@ -5,7 +5,7 @@ Like Godot, **one general-purpose editor** opens many **game project folders**. 
 | Folder | What | What you do there |
 |---|---|---|
 | The engine folder (the engine repository, for example `D:\MealKit`) | The engine (`engine/`), the general-purpose editor `MealKitEditor.exe`, third-party libraries, shared build settings (`cmake/`), tools, the reference samples `samples/sandbox` and `samples/coop` | Engine and editor development, determinism tests |
-| A game project folder (for example `D:\GameEngine\MealKit\<game>`) | `mealkit.project`, game code (`source/`), assets (`assets/`), builds (`build/`), **the release (`export/<game>/`)** | Making the game |
+| A game project folder (for example `D:\GameEngine\MealKit\<game>`) | `mealkit.project`, game code (`source/`), assets (`assets/`), builds (`build/`), **the release (`export/<os>/<game>/`)** | Making the game |
 
 There are two kinds of builds:
 

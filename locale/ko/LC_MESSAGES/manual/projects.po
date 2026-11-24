@@ -43,8 +43,8 @@ msgstr "엔진·에디터 개발, 결정론 테스트"
 msgid "A game project folder (for example `D:\\GameEngine\\MealKit\\<game>`)"
 msgstr "게임 프로젝트 폴더 (예: `D:\\GameEngine\\MealKit\\<게임>`)"
 
-msgid "`mealkit.project`, game code (`source/`), assets (`assets/`), builds (`build/`), **the release (`export/<game>/`)**"
-msgstr "`mealkit.project`, 게임 코드(`source/`), 에셋(`assets/`), 빌드(`build/`), **출시본(`export/<게임>/`)**"
+msgid "`mealkit.project`, game code (`source/`), assets (`assets/`), builds (`build/`), **the release (`export/<os>/<game>/`)**"
+msgstr "`mealkit.project`, 게임 코드(`source/`), 에셋(`assets/`), 빌드(`build/`), **출시본(`export/<os>/<게임>/`)**"
 
 msgid "Making the game"
 msgstr "게임 만들기"

@@ -63,8 +63,8 @@ msgstr "VS Code → 엔진 폴더의 `engine/src/mealkit/...` → `build.bat Edi
 msgid "Make the game for release"
 msgstr "출시용 게임 만들기"
 
-msgid "Editor → Build → Release Build (`Ctrl+B`) → `export/<game>/`"
-msgstr "에디터 → 빌드 → 출시 빌드 (`Ctrl+B`) → `export/<게임>/`"
+msgid "Editor → Build → Release Build (`Ctrl+B`) → `export/<os>/<game>/`"
+msgstr "에디터 → 빌드 → 출시 빌드 (`Ctrl+B`) → `export/<os>/<게임>/`"
 
 msgid "Make 3D models"
 msgstr "3D 모델 만들기"

@@ -3,14 +3,14 @@
 Run these from the engine folder (the engine repository):
 
 ```bat
-build.bat Editor     :: general-purpose editor: build\Editor\bin\MealKitEditor.exe + mealkit.dll + sandbox_game.dll
-build.bat            :: Release: build\Release\bin\sandbox.exe (shipped game, engine linked statically) + sandbox_headless.exe (simulation without a window)
+build.bat Editor     :: general-purpose editor: build\windows\Editor\bin\MealKitEditor.exe + mealkit.dll + sandbox_game.dll
+build.bat            :: Release: build\windows\Release\bin\sandbox.exe (shipped game, engine linked statically) + sandbox_headless.exe (simulation without a window)
 build.bat Debug      :: Debug (the D3D12 debug layer is turned on automatically)
 build.bat Profile    :: Release + Tracy profiling
-build.bat Export     :: release folder export\sandbox\
-build.bat ClangCL    :: clang-cl Release: build\ClangCL\bin (to compare determinism with the MSVC build, not shipped)
-build.bat Vulkan     :: Release with the Vulkan graphics backend: build\Vulkan\bin (to compare with Direct3D 12, not shipped on Windows)
-build.bat VulkanEditor :: the editor with the Vulkan backend: build\VulkanEditor\bin
+build.bat Export     :: release folder export\windows\sandbox\
+build.bat ClangCL    :: clang-cl Release: build\windows\ClangCL\bin (to compare determinism with the MSVC build, not shipped)
+build.bat Vulkan     :: Release with the Vulkan graphics backend: build\windows\Vulkan\bin (to compare with Direct3D 12, not shipped on Windows)
+build.bat VulkanEditor :: the editor with the Vulkan backend: build\windows\VulkanEditor\bin
 ```
 
 `build.bat` calls `tools\build_project.bat`, which runs the shared build script `tools\build.ps1`: it loads the Visual Studio environment (vcvars64) and builds with Ninja into `build\<Config>`.

@@ -67,8 +67,8 @@ msgstr "`assets/feedback.table`: 틱 이벤트를 소리·카메라 흔들림·�
 msgid "Export (release build)"
 msgstr "출시 빌드 (Export)"
 
-msgid "Making the release folder `export/<game>/` that is given to players."
-msgstr "플레이어에게 주는 출시 폴더 `export/<게임>/`를 만드는 것."
+msgid "Making the release folder `export/<os>/<game>/` that is given to players."
+msgstr "플레이어에게 주는 출시 폴더 `export/<os>/<게임>/`를 만드는 것."
 
 msgid "Game DLL"
 msgstr "게임 DLL (Game DLL)"

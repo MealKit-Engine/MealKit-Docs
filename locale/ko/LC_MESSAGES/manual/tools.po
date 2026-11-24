@@ -67,8 +67,8 @@ msgstr "`toolPath` 폴더는 도구 폴더 자체이거나 도구 폴더들을 �
 msgid "Live connection"
 msgstr "라이브 연결"
 
-msgid "While a development build of the game or the editor runs, tools can connect to it to change values and read its state without restarting, like FMOD's Live Update. The editor and every development game window (the game's `build\\Release`, `Debug` or `Profile` exe) open a small server on this computer only, and write how to reach it in the project's `build\\live\\` folder. Release builds made with **Build > Release Build** do not have it."
-msgstr "게임 개발 빌드나 에디터가 실행 중이면, FMOD의 Live Update처럼 도구가 붙어 다시 시작하지 않고 값을 바꾸고 상태를 읽는다. 에디터와 모든 개발 게임 창(게임의 `build\\Release`·`Debug`·`Profile` exe)이 이 컴퓨터에서만 받는 작은 서버를 열고, 접속 방법을 프로젝트의 `build\\live\\` 폴더에 쓴다. **빌드 > 출시 빌드**로 만든 출시 빌드에는 없다."
+msgid "While a development build of the game or the editor runs, tools can connect to it to change values and read its state without restarting, like FMOD's Live Update. The editor and every development game window (the game's `build\\windows\\Release`, `Debug` or `Profile` exe) open a small server on this computer only, and write how to reach it in the project's `build\\live\\` folder. Release builds made with **Build > Release Build** do not have it."
+msgstr "게임 개발 빌드나 에디터가 실행 중이면, FMOD의 Live Update처럼 도구가 붙어 다시 시작하지 않고 값을 바꾸고 상태를 읽는다. 에디터와 모든 개발 게임 창(게임의 `build\\windows\\Release`·`Debug`·`Profile` exe)이 이 컴퓨터에서만 받는 작은 서버를 열고, 접속 방법을 프로젝트의 `build\\live\\` 폴더에 쓴다. **빌드 > 출시 빌드**로 만든 출시 빌드에는 없다."
 
 msgid "`tools\\live_probe.ps1` in the engine shows what is running for a project:"
 msgstr "엔진의 `tools\\live_probe.ps1`은 프로젝트에서 무엇이 실행 중인지 보여 준다:"

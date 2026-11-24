@@ -8,15 +8,15 @@ How to use the editor is in {doc}`../../manual/editor`; scenes are edited in MkR
 The Editor build (`build.bat Editor`) makes the engine and the editor, and each project builds only its game code against them:
 
 ```text
-build\Editor\bin\mealkit.dll         the whole engine (renderer, physics, network, sound, Dear ImGui)
-build\Editor\bin\MealKitEditor.exe   the general-purpose editor (scene editing, play mode, builds)
-<project>\build\Editor\bin\<name>_game.dll   the project's game code (sim/, view/, app/)
+build\windows\Editor\bin\mealkit.dll         the whole engine (renderer, physics, network, sound, Dear ImGui)
+build\windows\Editor\bin\MealKitEditor.exe   the general-purpose editor (scene editing, play mode, builds)
+<project>\build\windows\Editor\bin\<name>_game.dll   the project's game code (sim/, view/, app/)
 ```
 
 The editor contains **no game logic**. Everything it knows about a game (object kinds, tuning, tables, events, view models) comes from the game DLL at run time.
 
 The three files use the dynamic CRT so that they share one heap and one copy of Dear ImGui. The shipped game is different: one static exe with the static CRT and no editor.
-Because the two builds use different CRTs and library forms, they live in separate folders (`build\Editor` and `build\Release`).
+Because the two builds use different CRTs and library forms, they live in separate folders (`build\windows\Editor` and `build\windows\Release`).
 `mealkit.dll` exports every symbol through a generated `.def` file ({engine}`cmake/FixExportsDef.cmake`), so engine headers must not hold global variables that game code uses directly.
 
 ## Starting up
@@ -52,7 +52,7 @@ The engine side of the game code boundary (`GameInstance`, `GameContext`) is des
 
 ## Hot reload
 
-`editor::GameModuleHost` ({engine}`engine/src/mealkit/editor/GameModuleHost.cpp`) never loads the built DLL itself. It copies it to `build\Editor\bin\hot\<name>.<process id>.<number>.dll` and loads the copy.
+`editor::GameModuleHost` ({engine}`engine/src/mealkit/editor/GameModuleHost.cpp`) never loads the built DLL itself. It copies it to `build\windows\Editor\bin\hot\<name>.<process id>.<number>.dll` and loads the copy.
 Windows locks a loaded DLL, so loading the original would stop the linker from writing a new one while the editor is open.
 The process id is in the name because player windows of multiplayer play are separate processes that load their own copies.
 
@@ -111,10 +111,10 @@ Tuning changes from the Tuning panel apply to the running game at once.
 
 With 2 to 4 players, the editor becomes the host on port 27215 and starts the same `MealKitEditor.exe` again in player window mode (`--player-window --join 127.0.0.1:27215`), one process per extra player. This is like Unity's Multiplayer Play Mode. A player window takes the same game options as the shipped exe and runs the same loop, `game::runGame`; only the window title, a muted start, no player files and no Steam login differ (`game::GameRunOptions`).
 
-- The scene being edited is saved to `build\Editor\play\play.scene`, and the player windows load that copy, so unsaved edits are included.
+- The scene being edited is saved to `build\windows\Editor\play\play.scene`, and the player windows load that copy, so unsaved edits are included.
 - Every player builds the same content hash from the scene, models, tuning, project settings and tables. A peer with different data is refused, as in a real match.
 - Game tuning changes are **not** applied during multiplayer play, because peers would then simulate with different values and desync. Display tuning (`view.tuning`) is only seen, so the editor rewrites a copy that player windows read again (at most every 0.2 seconds).
-- If the player windows do not connect within 30 seconds, play stops. Their logs are `build\Editor\play\player<n>.log`.
+- If the player windows do not connect within 30 seconds, play stops. Their logs are `build\windows\Editor\play\player<n>.log`.
 
 ## Simulation debugging
 
@@ -142,7 +142,7 @@ The Build menu runs the project's own scripts in the background with `ChildProce
 | Menu | Runs | Afterwards |
 |---|---|---|
 | Build Game Code (`Ctrl+R`) | `build.bat Editor` | The new game DLL is hot reloaded. |
-| Release Build (`Ctrl+B`) | `build.bat Export` | The release folder `export\<name>` is ready. |
+| Release Build (`Ctrl+B`) | `build.bat Export` | The release folder `export\windows\<name>` is ready. |
 | Upgrade (offered when the project's engine version differs) | the engine's `tools\upgrade_project.ps1` | The game code is built again. |
 
 When a project opens, the editor also runs the folder layout check (`tools\check_layout.ps1`) in the background and lists misplaced files.

@@ -177,8 +177,8 @@ msgstr "벤치마크 모드"
 msgid "`--benchmark [seconds]` measures the game the same way every time, so builds, graphics features and PCs can be compared:"
 msgstr "`--benchmark [초]`는 게임을 매번 같은 방법으로 재서 빌드, 그래픽 기능, PC를 비교할 수 있게 한다:"
 
-msgid "build\\Release\\bin\\sandbox.exe --benchmark\n"
-msgstr "build\\Release\\bin\\sandbox.exe --benchmark\n"
+msgid "build\\windows\\Release\\bin\\sandbox.exe --benchmark\n"
+msgstr "build\\windows\\Release\\bin\\sandbox.exe --benchmark\n"
 
 msgid "It plays offline with a fixed seed (`--seed 1` unless given) and bot input, with vsync off (unless `--vsync` is given) and sound off. The camera follows the bot's character, so the same build and data take the same path."
 msgstr "고정 시드(주지 않으면 `--seed 1`)와 봇 입력으로 혼자 플레이하고, 수직동기는 끄고(`--vsync`를 주지 않으면) 소리도 끈다. 카메라는 봇 캐릭터를 따라가므로 같은 빌드와 데이터면 같은 길을 간다."
@@ -298,8 +298,8 @@ msgstr "더 무거운 장면"
 msgid "To see how the simulation and drawing scale, the example accepts a box count that replaces the one in the scene:"
 msgstr "시뮬레이션과 그리기가 얼마나 버티는지 보려면, 예제에 씬의 상자 수 대신 쓸 수를 줄 수 있다:"
 
-msgid "build\\Release\\bin\\sandbox.exe --bot --bodies 8000 --vsync 0 --exit-tick 900\n"
-msgstr "build\\Release\\bin\\sandbox.exe --bot --bodies 8000 --vsync 0 --exit-tick 900\n"
+msgid "build\\windows\\Release\\bin\\sandbox.exe --bot --bodies 8000 --vsync 0 --exit-tick 900\n"
+msgstr "build\\windows\\Release\\bin\\sandbox.exe --bot --bodies 8000 --vsync 0 --exit-tick 900\n"
 
 msgid "`--bot` plays by itself and `--exit-tick` ends the run, so the `perf:` lines in the log can be compared between builds. The count is match data chosen by the host, so every peer uses the same value (`--match-data` in the headless game)."
 msgstr "`--bot`은 혼자 플레이하고 `--exit-tick`은 실행을 끝내므로, 로그의 `perf:` 줄을 빌드끼리 비교할 수 있다. 이 수는 호스트가 정하는 매치 데이터라 모든 피어가 같은 값을 쓴다(헤드리스 게임은 `--match-data`)."
@@ -307,8 +307,8 @@ msgstr "`--bot`은 혼자 플레이하고 `--exit-tick`은 실행을 끝내므�
 msgid "Profiling (Tracy)"
 msgstr "프로파일링 (Tracy)"
 
-msgid "`build.bat Profile` → run `build\\Profile\\bin\\sandbox.exe`."
-msgstr "`build.bat Profile` → `build\\Profile\\bin\\sandbox.exe` 실행."
+msgid "`build.bat Profile` → run `build\\windows\\Profile\\bin\\sandbox.exe`."
+msgstr "`build.bat Profile` → `build\\windows\\Profile\\bin\\sandbox.exe` 실행."
 
 msgid "Start the Tracy profiler (v0.14.1, https://github.com/wolfpld/tracy/releases) and connect to `127.0.0.1`."
 msgstr "Tracy 프로파일러 앱(v0.14.1, https://github.com/wolfpld/tracy/releases)을 켜고 `127.0.0.1`에 연결한다."

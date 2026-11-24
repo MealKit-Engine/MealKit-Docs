@@ -29,11 +29,11 @@ msgstr "한 PC에서 멀티플레이 시험하기"
 msgid "Build the Release game: `build.bat`."
 msgstr "Release 게임을 빌드한다: `build.bat`."
 
-msgid "Start a host that listens only on this PC: `build\\Release\\bin\\sandbox.exe --host --local`."
-msgstr "이 PC에서만 받는 호스트를 띄운다: `build\\Release\\bin\\sandbox.exe --host --local`."
+msgid "Start a host that listens only on this PC: `build\\windows\\Release\\bin\\sandbox.exe --host --local`."
+msgstr "이 PC에서만 받는 호스트를 띄운다: `build\\windows\\Release\\bin\\sandbox.exe --host --local`."
 
-msgid "Start one or more clients: `build\\Release\\bin\\sandbox.exe --join 127.0.0.1`."
-msgstr "클라이언트를 하나 이상 띄운다: `build\\Release\\bin\\sandbox.exe --join 127.0.0.1`."
+msgid "Start one or more clients: `build\\windows\\Release\\bin\\sandbox.exe --join 127.0.0.1`."
+msgstr "클라이언트를 하나 이상 띄운다: `build\\windows\\Release\\bin\\sandbox.exe --join 127.0.0.1`."
 
 msgid "Press Enter in the host's lobby to start the match."
 msgstr "호스트 로비에서 Enter를 눌러 매치를 시작한다."

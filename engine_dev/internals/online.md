@@ -33,7 +33,7 @@ There is no backend switch at run time. {engine}`engine/CMakeLists.txt` compiles
 | EOS | {engine}`engine/src/mealkit/online/OnlineEOS.cpp` | A game build where `third_party/eos/sdk` has `Include/eos_sdk.h` and `Lib/EOSSDK-Win64-Shipping.lib`, and `third_party/eos/credentials.txt` exists. CMake defines `MEALKIT_EOS=1`, writes the portal values into `EosCredentials.h` in the build folder, links the SDK and copies `EOSSDK-Win64-Shipping.dll` next to the game exe. |
 | None | {engine}`engine/src/mealkit/online/OnlineNone.cpp` | Every other build: no SDK, or the Editor build. |
 
-The CMake option `MEALKIT_ONLINE` picks the backend: `Auto` (default) uses Steam when its SDK is there, otherwise EOS, otherwise none. `Steam` and `EOS` force one and stop the configure step when its files are missing. `build.bat EOS` builds into `build\EOS` with `-DMEALKIT_ONLINE=EOS`.
+The CMake option `MEALKIT_ONLINE` picks the backend: `Auto` (default) uses Steam when its SDK is there, otherwise EOS, otherwise none. `Steam` and `EOS` force one and stop the configure step when its files are missing. `build.bat EOS` builds into `build\windows\EOS` with `-DMEALKIT_ONLINE=EOS`.
 The SDKs are not in the repository, so a fresh checkout always builds with "none". The Editor build never uses an online backend, because multiplayer play in the editor connects its player windows over local UDP.
 Because all files implement the same class, game code is the same for every backend. Console services (stage 5) will be more files of the same kind.
 

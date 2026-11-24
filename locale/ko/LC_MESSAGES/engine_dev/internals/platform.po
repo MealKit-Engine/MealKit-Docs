@@ -255,8 +255,8 @@ msgid "Otherwise it looks in the executable's folder and up to five folders abov
 msgstr "아니면 실행 파일 폴더와 그 위로 다섯 폴더까지, 그다음 현재 폴더에서 찾는다."
 
 #, python-brace-format
-msgid "Step 2 lets a development build in `build\\Release\\bin` find the repository's `assets` folder without copying it. Step 1 exists for the editor: `MealKitEditor.exe` lives inside the engine repository, so without a root it would find the engine's own `assets` instead of the open project's (see {doc}`editor`)."
-msgstr "2단계 덕분에 `build\\Release\\bin`의 개발 빌드가 복사 없이 저장소의 `assets` 폴더를 찾는다. 1단계는 에디터를 위한 것이다: `MealKitEditor.exe`는 엔진 저장소 안에 있어서, 루트가 없으면 연 프로젝트가 아니라 엔진 자신의 `assets`를 찾는다({doc}`editor` 참고)."
+msgid "Step 2 lets a development build in `build\\windows\\Release\\bin` find the repository's `assets` folder without copying it. Step 1 exists for the editor: `MealKitEditor.exe` lives inside the engine repository, so without a root it would find the engine's own `assets` instead of the open project's (see {doc}`editor`)."
+msgstr "2단계 덕분에 `build\\windows\\Release\\bin`의 개발 빌드가 복사 없이 저장소의 `assets` 폴더를 찾는다. 1단계는 에디터를 위한 것이다: `MealKitEditor.exe`는 엔진 저장소 안에 있어서, 루트가 없으면 연 프로젝트가 아니라 엔진 자신의 `assets`를 찾는다({doc}`editor` 참고)."
 
 msgid "Reading and writing"
 msgstr "읽기와 쓰기"

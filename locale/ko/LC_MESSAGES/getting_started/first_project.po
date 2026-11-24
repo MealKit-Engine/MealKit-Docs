@@ -26,8 +26,8 @@ msgstr "고도처럼 MealKit은 **범용 에디터 하나**가 여러 **게임 �
 msgid "Opening the project manager"
 msgstr "프로젝트 관리자 열기"
 
-msgid "Run `editor.bat` in the engine folder (it builds the editor first if needed), or run `build\\Editor\\bin\\MealKitEditor.exe` directly. The project manager opens, similar to Godot's."
-msgstr "엔진 폴더의 `editor.bat`(에디터가 없으면 먼저 빌드한다)이나 `build\\Editor\\bin\\MealKitEditor.exe`를 그냥 실행한다. 고도와 비슷한 프로젝트 관리자가 뜬다."
+msgid "Run `editor.bat` in the engine folder (it builds the editor first if needed), or run `build\\windows\\Editor\\bin\\MealKitEditor.exe` directly. The project manager opens, similar to Godot's."
+msgstr "엔진 폴더의 `editor.bat`(에디터가 없으면 먼저 빌드한다)이나 `build\\windows\\Editor\\bin\\MealKitEditor.exe`를 그냥 실행한다. 고도와 비슷한 프로젝트 관리자가 뜬다."
 
 msgid "It offers Create, Import, search and the editor language (Korean/English). In the list you can star a project (favorites), click the icon, the name (= the exe name, `tools\\rename_project.ps1`) or the folder path (moves the folder) to change it, and double-click to open the project."
 msgstr "[만들기]·[가져오기]·검색·에디터 언어(한국어/English)가 있다. 목록에서 별(즐겨찾기), 아이콘·이름(= exe 이름, `tools\\rename_project.ps1`)·폴더 경로(폴더 옮기기)를 눌러 고치고, 더블클릭으로 연다."

@@ -4,11 +4,11 @@
 
 | Command | Folder | What it is for |
 |---|---|---|
-| `build.bat Editor` | `build\Editor` | The editor: engine `mealkit.dll` (dynamic CRT) + `MealKitEditor.exe`, and in a project only the game DLL `<game>_game.dll` |
-| `build.bat` | `build\Release` | The development game: one static `<game>.exe` (static CRT) with the debug UI, plus `<game>_headless.exe` |
-| `build.bat Debug` | `build\Debug` | Debugging, with the D3D12 debug layer |
-| `build.bat Profile` | `build\Profile` | Release with Tracy markers (see {doc}`performance`) |
-| `build.bat Export` | `build\Export` → `export\<game>\` | The release folder, built without the debug UI |
+| `build.bat Editor` | `build\windows\Editor` | The editor: engine `mealkit.dll` (dynamic CRT) + `MealKitEditor.exe`, and in a project only the game DLL `<game>_game.dll` |
+| `build.bat` | `build\windows\Release` | The development game: one static `<game>.exe` (static CRT) with the debug UI, plus `<game>_headless.exe` |
+| `build.bat Debug` | `build\windows\Debug` | Debugging, with the D3D12 debug layer |
+| `build.bat Profile` | `build\windows\Profile` | Release with Tracy markers (see {doc}`performance`) |
+| `build.bat Export` | `build\windows\Export` → `export\windows\<game>\` | The release folder, built without the debug UI |
 
 The Editor and Release builds use different CRTs and library kinds, so they live in separate folders.
 The shipped exe stays a single static file and never links the editor. Dear ImGui is only in development builds and the editor (see {doc}`debug_ui`): the export builds the game again in its own folder with the debug UI turned off, so the first export takes longer.
@@ -18,7 +18,7 @@ The shipped exe stays a single static file and never links the editor. Dear ImGu
 
 - In the editor: **Build → Release Build** (`Ctrl+B`). It builds in the background while the editor stays open and shows the log. Unsaved scenes are saved first.
 - From the command line: `build.bat Export` in the project folder.
-- Result: `export\<game>\` (or `export\<game>-<version>\` when `exportVersionFolder` is on in `mealkit.project`) with `<game>.exe`, `<game>.pak`, `build.txt`, `steam_api64.dll` and `THIRD_PARTY_NOTICES.txt` (plus `steam_appid.txt` when the app ID is 480). Distribute the whole folder.
+- Result: `export\windows\<game>\` (or `export\windows\<game>-<version>\` when `exportVersionFolder` is on in `mealkit.project`) with `<game>.exe`, `<game>.pak`, `build.txt`, `steam_api64.dll` and `THIRD_PARTY_NOTICES.txt` (plus `steam_appid.txt` when the app ID is 480). Distribute the whole folder.
 - `build.txt` records the engine version, the project's git commit (with `+` when files were modified) and the content hash of the pack. `<game>.exe --help` prints it, and bug reports include it.
 
 (build-profiles)=
@@ -34,7 +34,7 @@ output export/windows-vulkan
 ```
 
 - `config` is any configuration of the build script: `Export` (DirectX 12 on Windows), `VulkanExport` (the same with the Vulkan backend; on Linux it is the same as `Export`), `Release`, `Debug`, `Profile`, `Vulkan` and so on.
-- `output` is only for `Export` and `VulkanExport`: a folder relative to the project (or an absolute one). Leave it out to use `export\<game>`. With a project on its own, a profile's `output` replaces the folder that `exportVersionFolder` would pick.
+- `output` is only for `Export` and `VulkanExport`: a folder relative to the project (or an absolute one). Leave it out to use `export\windows\<game>`. With a project on its own, a profile's `output` replaces the folder that `exportVersionFolder` would pick.
 - In the editor, **Build Log** shows a profile list and **Build Profile**. If the project has no profiles yet, **Add Default Profiles** writes Windows DX12, Windows Vulkan, Linux Vulkan and Debug; edit the files to change them. **Open Release Folder** opens the selected export profile's output.
 - From the command line: `build.bat profile:windows-vulkan` (Linux: `pwsh build.ps1 profile:linux-vulkan`).
 
@@ -57,8 +57,8 @@ Cook: .../view/ViewTuning.h names assets/models/characters/rig_figure.glb, which
 To check the cooked game without exporting, cook and play it from a development build:
 
 ```bat
-build\Release\bin\<game>.exe --cook build\cook\<game>.pak
-build\Release\bin\<game>.exe --pack build\cook\<game>.pak
+build\windows\Release\bin\<game>.exe --cook build\cook\<game>.pak
+build\windows\Release\bin\<game>.exe --pack build\cook\<game>.pak
 ```
 
 With a pack, the game sees only what's in it, so a missing asset shows up here the same way it would for players. The editor always uses the files in `assets/`.

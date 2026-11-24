@@ -69,13 +69,13 @@ if (p.mover.grounded) {
 Build the release game (`build.bat` in the project folder) and run the one-process check:
 
 ```bat
-build\Release\bin\<name>.exe --bot --exit-tick 900 --shadow --rewind-test --vsync 0
+build\windows\Release\bin\<name>.exe --bot --exit-tick 900 --shadow --rewind-test --vsync 0
 ```
 
 It must print `SHADOW ok` and `REWIND ok`. Then run the multiplayer test with several peers from the engine folder (in VS Code: `Tasks: Run Task` → `Multiplayer Determinism Test`):
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File tools\mp_test.ps1 -Exe <project>\build\Release\bin\<name>.exe -Clients 3 -Ticks 900
+powershell -ExecutionPolicy Bypass -File tools\mp_test.ps1 -Exe <project>\build\windows\Release\bin\<name>.exe -Clients 3 -Ticks 900
 ```
 
 It must print `PASS`.

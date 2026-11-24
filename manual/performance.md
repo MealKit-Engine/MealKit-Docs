@@ -49,7 +49,7 @@ With vsync on, the frame rate stops at the monitor's rate and the frame time hid
 `--benchmark [seconds]` measures the game the same way every time, so builds, graphics features and PCs can be compared:
 
 ```bat
-build\Release\bin\sandbox.exe --benchmark
+build\windows\Release\bin\sandbox.exe --benchmark
 ```
 
 - It plays offline with a fixed seed (`--seed 1` unless given) and bot input, with vsync off (unless `--vsync` is given) and sound off. The camera follows the bot's character, so the same build and data take the same path.
@@ -86,14 +86,14 @@ Passes the renderer does not have yet (shadows, post processing, effects) read 0
 To see how the simulation and drawing scale, the example accepts a box count that replaces the one in the scene:
 
 ```bat
-build\Release\bin\sandbox.exe --bot --bodies 8000 --vsync 0 --exit-tick 900
+build\windows\Release\bin\sandbox.exe --bot --bodies 8000 --vsync 0 --exit-tick 900
 ```
 
 `--bot` plays by itself and `--exit-tick` ends the run, so the `perf:` lines in the log can be compared between builds. The count is match data chosen by the host, so every peer uses the same value (`--match-data` in the headless game).
 
 ## Profiling (Tracy)
 
-1. `build.bat Profile` → run `build\Profile\bin\sandbox.exe`.
+1. `build.bat Profile` → run `build\windows\Profile\bin\sandbox.exe`.
 2. Start the Tracy profiler (v0.14.1, https://github.com/wolfpld/tracy/releases) and connect to `127.0.0.1`.
 3. You see CPU zones per frame (`Simulation`, `Physics step`, `Network`, `Render`, `Editor UI`) and the **GPU frame time**.
 

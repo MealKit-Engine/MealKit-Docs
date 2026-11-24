@@ -273,8 +273,8 @@ msgstr "`sandbox_headless.exe`는 `sim/` + `app/Headless.cpp`만 엔진 코어(`
 msgid "`--hash-log`: one `<tick> <hash>` line per tick. The windowed game (`sandbox.exe --bot --hash-log`) writes the same file."
 msgstr "`--hash-log`: 틱마다 `<틱> <해시>` 한 줄. 창 있는 게임(`sandbox.exe --bot --hash-log`)도 같은 파일을 쓴다."
 
-msgid "`--record-inputs` (also in the windowed game) saves the confirmed inputs and the hash of every tick. `--replay-inputs` reruns them without a network and prints `REPLAY ok` or the first tick that differs. To compare builds, compilers or operating systems, do not run bots separately: replay **the same recording** in each build (for example `build\\ClangCL\\bin\\sandbox_headless.exe --replay-inputs match.rec`)."
-msgstr "`--record-inputs`(창 있는 게임에도 있다)는 확정된 입력과 틱별 해시를 저장한다. `--replay-inputs`는 네트워크 없이 그것을 다시 돌려 `REPLAY ok` 또는 처음 갈라진 틱을 출력한다. 빌드·컴파일러·OS 사이 비교는 봇을 따로 돌리지 않고 **같은 기록 파일**을 각 빌드에서 재생한다(예: `build\\ClangCL\\bin\\sandbox_headless.exe --replay-inputs match.rec`)."
+msgid "`--record-inputs` (also in the windowed game) saves the confirmed inputs and the hash of every tick. `--replay-inputs` reruns them without a network and prints `REPLAY ok` or the first tick that differs. To compare builds, compilers or operating systems, do not run bots separately: replay **the same recording** in each build (for example `build\\windows\\ClangCL\\bin\\sandbox_headless.exe --replay-inputs match.rec`)."
+msgstr "`--record-inputs`(창 있는 게임에도 있다)는 확정된 입력과 틱별 해시를 저장한다. `--replay-inputs`는 네트워크 없이 그것을 다시 돌려 `REPLAY ok` 또는 처음 갈라진 틱을 출력한다. 빌드·컴파일러·OS 사이 비교는 봇을 따로 돌리지 않고 **같은 기록 파일**을 각 빌드에서 재생한다(예: `build\\windows\\ClangCL\\bin\\sandbox_headless.exe --replay-inputs match.rec`)."
 
 msgid "A game project gets `<name>_headless` by putting `MEALKIT_HEADLESS_GAME(class)` in `source/app/Headless.cpp` (`mealkit/game/Headless.h`, coding model \"Headless entry point\")."
 msgstr "게임 프로젝트는 `source/app/Headless.cpp`에 `MEALKIT_HEADLESS_GAME(클래스)`를 두면 `<이름>_headless`가 생긴다(`mealkit/game/Headless.h`, 코딩 방식 \"헤드리스 진입점\")."
@@ -343,8 +343,8 @@ msgstr ""
 msgid "Run `build.bat EOS`. The build log shows `online backend EOS`, and `EOSSDK-Win64-Shipping.dll` is placed next to the executable."
 msgstr "`build.bat EOS`를 실행한다. 빌드 로그에 `online backend EOS`가 나오고, `EOSSDK-Win64-Shipping.dll`이 실행 파일 옆에 놓인다."
 
-msgid "`build\\EOS\\bin\\sandbox.exe --steam` logs in (no Epic account, a device ID) and creates a lobby. The log shows a six-digit **lobby code**. On another PC, `sandbox.exe --steam-join <code>` joins it."
-msgstr "`build\\EOS\\bin\\sandbox.exe --steam`이 로그인하고(Epic 계정 없이 기기 ID로) 로비를 만든다. 로그에 여섯 자리 **로비 코드**가 나온다. 다른 PC에서 `sandbox.exe --steam-join <코드>`로 들어온다."
+msgid "`build\\windows\\EOS\\bin\\sandbox.exe --steam` logs in (no Epic account, a device ID) and creates a lobby. The log shows a six-digit **lobby code**. On another PC, `sandbox.exe --steam-join <code>` joins it."
+msgstr "`build\\windows\\EOS\\bin\\sandbox.exe --steam`이 로그인하고(Epic 계정 없이 기기 ID로) 로비를 만든다. 로그에 여섯 자리 **로비 코드**가 나온다. 다른 PC에서 `sandbox.exe --steam-join <코드>`로 들어온다."
 
 msgid "`third_party/eos/` is in `.gitignore`, so the client secret never goes into the repository. It is built into the game exe, as EOS expects for game clients."
 msgstr "`third_party/eos/`는 `.gitignore`에 있어 클라이언트 비밀값이 저장소에 들어가지 않는다. 비밀값은 게임 exe 안에 들어간다(EOS가 게임 클라이언트에 기대하는 방식)."

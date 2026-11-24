@@ -30,7 +30,7 @@ A `toolPath` folder can be a tool folder itself or a folder of tool folders. `Me
 
 ## Live connection
 
-While a development build of the game or the editor runs, tools can connect to it to change values and read its state without restarting, like FMOD's Live Update. The editor and every development game window (the game's `build\Release`, `Debug` or `Profile` exe) open a small server on this computer only, and write how to reach it in the project's `build\live\` folder. Release builds made with **Build > Release Build** do not have it.
+While a development build of the game or the editor runs, tools can connect to it to change values and read its state without restarting, like FMOD's Live Update. The editor and every development game window (the game's `build\windows\Release`, `Debug` or `Profile` exe) open a small server on this computer only, and write how to reach it in the project's `build\live\` folder. Release builds made with **Build > Release Build** do not have it.
 
 `tools\live_probe.ps1` in the engine shows what is running for a project:
 

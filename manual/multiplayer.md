@@ -148,7 +148,7 @@ sandbox_headless.exe --help
 - `sandbox_headless.exe` links only `sim/` + `app/Headless.cpp` with the engine core (`mealkit_core`, no renderer or window). On Linux (x64) and macOS (ARM64) with Clang, only this is built. The shipped exe's `--headless` runs the same code.
 - `--hash-log`: one `<tick> <hash>` line per tick. The windowed game (`sandbox.exe --bot --hash-log`) writes the same file.
 - `--record-inputs` (also in the windowed game) saves the confirmed inputs and the hash of every tick. `--replay-inputs` reruns them without a network and prints `REPLAY ok` or the first tick that differs.
-  To compare builds, compilers or operating systems, do not run bots separately: replay **the same recording** in each build (for example `build\ClangCL\bin\sandbox_headless.exe --replay-inputs match.rec`).
+  To compare builds, compilers or operating systems, do not run bots separately: replay **the same recording** in each build (for example `build\windows\ClangCL\bin\sandbox_headless.exe --replay-inputs match.rec`).
 - A game project gets `<name>_headless` by putting `MEALKIT_HEADLESS_GAME(class)` in `source/app/Headless.cpp` (`mealkit/game/Headless.h`, coding model "Headless entry point").
 
 (steamworks)=
@@ -183,7 +183,7 @@ Epic's terms do not allow the EOS SDK in the repository either. EOS lobbies and 
    ClientSecret: ...
    ```
 3. Run `build.bat EOS`. The build log shows `online backend EOS`, and `EOSSDK-Win64-Shipping.dll` is placed next to the executable.
-4. `build\EOS\bin\sandbox.exe --steam` logs in (no Epic account, a device ID) and creates a lobby. The log shows a six-digit **lobby code**. On another PC, `sandbox.exe --steam-join <code>` joins it.
+4. `build\windows\EOS\bin\sandbox.exe --steam` logs in (no Epic account, a device ID) and creates a lobby. The log shows a six-digit **lobby code**. On another PC, `sandbox.exe --steam-join <code>` joins it.
 
 - `third_party/eos/` is in `.gitignore`, so the client secret never goes into the repository. It is built into the game exe, as EOS expects for game clients.
 - Two game processes on one PC are the same EOS user. Test joining with two PCs.
