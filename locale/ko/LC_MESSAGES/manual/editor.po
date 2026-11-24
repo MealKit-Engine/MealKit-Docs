@@ -258,6 +258,69 @@ msgstr "머티리얼 기능"
 msgid "The style features of each material: outline red, wind green, rim blue, dissolve yellow (colors add up when a material has several), none gray ({doc}`assets`)"
 msgstr "머티리얼마다의 스타일 기능: 외곽선 빨강, 바람 초록, 림 파랑, 디졸브 노랑(여러 개면 색이 더해진다), 없음 회색({doc}`assets`)"
 
+msgid "Base Color"
+msgstr "기본 색"
+
+msgid "The color before lighting: the texture times the material color"
+msgstr "조명 전의 색: 텍스처에 머티리얼 색을 곱한 값"
+
+msgid "Roughness"
+msgstr "거칠기"
+
+msgid "Roughness as gray: white is rough, black is smooth"
+msgstr "거칠기를 회색으로: 흰색은 거칠고 검정은 매끈하다"
+
+msgid "Metallic"
+msgstr "금속성"
+
+msgid "Metallic as gray: white is metal"
+msgstr "금속성을 회색으로: 흰색은 금속이다"
+
+msgid "Emissive"
+msgstr "발광"
+
+msgid "Only the light the materials give off"
+msgstr "머티리얼이 스스로 내는 빛만"
+
+msgid "Sun Only"
+msgstr "태양광만"
+
+msgid "The sun's diffuse light and highlight with its shadow, without sky light or reflections"
+msgstr "그림자를 포함한 태양의 확산광과 하이라이트만, 하늘빛과 반사는 뺀다"
+
+msgid "Ambient Only"
+msgstr "주변광만"
+
+msgid "The sky light that reaches the surface, without sun or reflections"
+msgstr "표면에 닿는 하늘빛만, 태양과 반사는 뺀다"
+
+msgid "Reflections Only"
+msgstr "반사만"
+
+msgid "Only the environment reflections"
+msgstr "환경 반사만"
+
+msgid "Shadow Cascades"
+msgstr "그림자 캐스케이드"
+
+msgid "The sun shadow cascade each pixel reads: cascade 0 green, cascade 1 yellow, gray beyond the shadow distance"
+msgstr "각 픽셀이 읽는 태양 그림자 캐스케이드: 0단계 초록, 1단계 노랑, 그림자 거리 밖은 회색"
+
+msgid "Mip Level"
+msgstr "밉 단계"
+
+msgid "The mip level of the base color texture, blue for full size to red for level 5 and smaller (dark gray: no texture)"
+msgstr "기본 색 텍스처의 밉 단계: 원본 크기는 파랑, 5단계 이하는 빨강(짙은 회색: 텍스처 없음)"
+
+msgid "Texel Density"
+msgstr "텍셀 밀도"
+
+msgid "Base color texels per meter: blue at 16 or fewer, green at 256, red at 4096 or more (dark gray: no texture)"
+msgstr "기본 색의 미터당 텍셀: 16 이하는 파랑, 256은 초록, 4096 이상은 빨강(짙은 회색: 텍스처 없음)"
+
+msgid "The last ten modes (Base Color to Texel Density) show one part of the lighting or one texture property at a time, so a technical artist can check a look. They need the PBR lighting model's terms: with toon or unlit lighting they still show the PBR values."
+msgstr "마지막 열 개 모드(기본 색~텍셀 밀도)는 조명의 한 부분이나 텍스처 속성 하나씩 보여 줘서 테크니컬 아티스트가 룩을 확인할 수 있다. PBR 조명 모델의 항을 쓰므로 툰이나 언릿 조명에서도 PBR 값이 보인다."
+
 msgid "View modes apply to the scene view and are left out of shipped builds."
 msgstr "보기 모드는 씬 화면에만 적용되고 출시 빌드에는 들어가지 않는다."
 

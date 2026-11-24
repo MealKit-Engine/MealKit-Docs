@@ -68,6 +68,18 @@ The **View Mode** list on the viewport toolbar colors the viewport by what costs
 | Overdraw | How many times each pixel is drawn, with no depth test: brighter means more layers |
 | Over Budget | Models over their asset budget in red, everything else gray ({doc}`assets`) |
 | Material Features | The style features of each material: outline red, wind green, rim blue, dissolve yellow (colors add up when a material has several), none gray ({doc}`assets`) |
+| Base Color | The color before lighting: the texture times the material color |
+| Roughness | Roughness as gray: white is rough, black is smooth |
+| Metallic | Metallic as gray: white is metal |
+| Emissive | Only the light the materials give off |
+| Sun Only | The sun's diffuse light and highlight with its shadow, without sky light or reflections |
+| Ambient Only | The sky light that reaches the surface, without sun or reflections |
+| Reflections Only | Only the environment reflections |
+| Shadow Cascades | The sun shadow cascade each pixel reads: cascade 0 green, cascade 1 yellow, gray beyond the shadow distance |
+| Mip Level | The mip level of the base color texture, blue for full size to red for level 5 and smaller (dark gray: no texture) |
+| Texel Density | Base color texels per meter: blue at 16 or fewer, green at 256, red at 4096 or more (dark gray: no texture) |
+
+The last ten modes (Base Color to Texel Density) show one part of the lighting or one texture property at a time, so a technical artist can check a look. They need the PBR lighting model's terms: with toon or unlit lighting they still show the PBR values.
 
 View modes apply to the scene view and are left out of shipped builds.
 
