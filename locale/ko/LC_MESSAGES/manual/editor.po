@@ -327,6 +327,9 @@ msgstr "마지막 열 개 모드(기본 색~텍셀 밀도)는 조명의 한 부�
 msgid "View modes apply to the scene view and are left out of shipped builds."
 msgstr "보기 모드는 씬 화면에만 적용되고 출시 빌드에는 들어가지 않는다."
 
+msgid "Pixel Inspector at the bottom of the **View Mode** list reads single pixels for a technical artist: while it is on, the left button over the viewport shows the pixel under it (dragging keeps reading) as the HDR color before post-processing, the color after exposure, its luminance and the final sRGB value. The readout sits at the bottom of the viewport, on the side away from the pixel. The final color is read from the screen, so anything drawn over the viewport (a panel, the axis cube) shows in it; the HDR values do not. `--pixel x,y` reads one window pixel every frame (for captures)."
+msgstr "**보기 모드** 목록 맨 아래의 Pixel Inspector(픽셀 검사기)는 테크니컬 아티스트가 픽셀 하나씩 읽는 도구다. 켜 두면 뷰포트 위에서 왼쪽 버튼으로 누른 자리(끌면 계속 읽는다)의 후처리 전 HDR 색, 노출 후 색, 휘도, 최종 sRGB 값을 보여 준다. 값은 뷰포트 아래쪽에, 읽은 픽셀의 반대편에 뜬다. 최종 색은 화면에서 읽으므로 뷰포트 위에 그려진 것(패널, 축 큐브)이 섞여 들어가고 HDR 값은 그렇지 않다. `--pixel x,y`는 창의 한 픽셀을 매 프레임 읽는다(캡처용)."
+
 msgid "Look dev"
 msgstr "룩데브"
 
@@ -346,6 +349,9 @@ msgstr "**돌리기**, **확대**: 받침대는 혼자 돈다. 그림을 끌면 
 #, python-brace-format
 msgid "**Flash**, **Dissolve**: preview the per-object values that game code sets ({doc}`assets`)."
 msgstr "**번쩍임**, **디졸브**: 게임 코드가 넣는 물체마다의 값을 미리 본다({doc}`assets`)."
+
+msgid "**Pixel Inspector**: the same switch as in the viewport's view mode list. With it on, the left button over the picture reads the pixel under it instead of turning the stand, and the values show above the picture. `--lookdev-pixel x,y` reads one image pixel every frame (for captures)."
+msgstr "**Pixel Inspector**(픽셀 검사기): 뷰포트 보기 모드 목록과 같은 스위치다. 켜면 그림 위에서 왼쪽 버튼이 받침대를 돌리는 대신 누른 자리의 픽셀을 읽고, 값은 그림 위에 뜬다. `--lookdev-pixel x,y`는 그림의 한 픽셀을 매 프레임 읽는다(캡처용)."
 
 msgid "The window follows the model picked in **Assets**; picking another file keeps the last model. `--lookdev` opens it at start (`--lookdev-model <model>` picks the model)."
 msgstr "창은 **에셋**에서 고른 모델을 따라간다. 다른 파일을 고르면 마지막 모델을 그대로 둔다. `--lookdev`는 시작할 때 연다(`--lookdev-model <모델>`이 모델을 고른다)."

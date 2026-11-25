@@ -84,6 +84,8 @@ The last ten modes (Base Color to Texel Density) show one part of the lighting o
 
 View modes apply to the scene view and are left out of shipped builds.
 
+Pixel Inspector at the bottom of the **View Mode** list reads single pixels for a technical artist: while it is on, the left button over the viewport shows the pixel under it (dragging keeps reading) as the HDR color before post-processing, the color after exposure, its luminance and the final sRGB value. The readout sits at the bottom of the viewport, on the side away from the pixel. The final color is read from the screen, so anything drawn over the viewport (a panel, the axis cube) shows in it; the HDR values do not. `--pixel x,y` reads one window pixel every frame (for captures).
+
 ## Look dev
 
 **Window > Previews** opens a window that shows the model picked in **Assets** on a turntable, lit the same way whatever the scene's lighting is. Use it to check a model and its materials right after exporting from Blender.
@@ -92,6 +94,7 @@ View modes apply to the scene view and are left out of shipped builds.
 - **Lighting model**: the project setting, or `Pbr`, `Toon` or `Unlit` to compare looks without changing the project.
 - **Turn**, **Zoom**: the turntable spins by itself; drag the picture to turn it and change the height, and use the mouse wheel to zoom.
 - **Flash**, **Dissolve**: preview the per-object values that game code sets ({doc}`assets`).
+- **Pixel Inspector**: the same switch as in the viewport's view mode list. With it on, the left button over the picture reads the pixel under it instead of turning the stand, and the values show above the picture. `--lookdev-pixel x,y` reads one image pixel every frame (for captures).
 
 The window follows the model picked in **Assets**; picking another file keeps the last model. `--lookdev` opens it at start (`--lookdev-model <model>` picks the model).
 
