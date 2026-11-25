@@ -90,6 +90,17 @@ A path is an ordered list of points that an AI character patrols. It is invisibl
 - **Closed loop**: the last point joins the first. An open path is walked there and back.
 - **In game code**: `scene::readPath(entity)` gives the points in world space and the length in whole millimeters; the `ai` module's `ai::patrolTarget` walks it (see the module's own docs).
 
+## Joints
+
+A joint links two solid objects with a physics constraint. It is invisible in the game and the simulation reads it.
+
+- **Add**: **Add > Joint**. Its position is the anchor, and its local up (+Y) is the hinge or slider axis.
+- **Kind**: hinge (turns about the axis), slider (slides along it), spring (a soft distance), fixed (welds the bodies) or rope (may not get farther apart than its length). Spring and rope run from the anchor to body B's own position; their length 0 means "as placed".
+- **Bodies**: `bodyA` and `bodyB` are names of `solid` objects; an empty name is the world. **Body A is dynamic** (off by default) and **Body B is dynamic** (on by default) say which of the linked solids start to move; the other stays fixed.
+- **Limits**: lower and upper limit from the placed pose, in degrees for a hinge and meters for a slider. 0 and 0 means free.
+- **Break force**: in newtons; over it the joint breaks for good. 0 means it never breaks.
+- **In game code**: `scene::readJoint(entity)` gives the anchor, the axis and the limits (radians for a hinge); the sandbox sample's `createJoints` creates the links in scene order.
+
 ## Hierarchy marks and handles
 
 - **Kind icons**: each row in the hierarchy starts with an icon for its kind (box, model, spawn point, area, light, camera, probe, sprite, other game kinds) drawn in the object's color.
