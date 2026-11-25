@@ -80,6 +80,16 @@ A sprite is an image placed in the world, the way 2D games draw characters, back
 - **2D projects**: a project made from the 2D template (`view2d true` in `mealkit.project`) opens in a flat front view of the x/y plane. The view doesn't turn: right drag pans, `W`/`S` move up and down, and the wheel zooms. The grid lies on the plane, the move gizmo has only x and y, and the rotate gizmo turns only around z.
 - **Pixel snapping**: for pixel art, set `camera.pixelsPerUnit` in `assets/view.tuning` (the **Tuning** panel) to the art's pixels per meter. The 2D template's camera then zooms in whole steps, so every art pixel covers the same whole number of screen pixels (the half height you set is rounded to the nearest such zoom), and it moves on the screen-pixel grid. Sprite positions are not snapped. 0 (the default) turns it off; the 2D template sets 16. Game code of your own calls `render::snapPixelView`.
 
+## Paths
+
+A path is an ordered list of points that an AI character patrols. It is invisible in the game and only the simulation reads it.
+
+- **Add**: **Add > Path**. A path with three points appears at the view's pivot; edit it in the inspector.
+- **Points**: each point has its own x, y and z in the object's space, so moving, turning or scaling the path object moves the whole path. **+** adds a point after that one, **-** removes it. The inspector shows the length in meters.
+- **In the viewport**: the selected path is drawn as a line with an arrow on every segment and numbered points. Drag a point to move it on the ground (hold `Ctrl` to snap, or the opposite of your snap setting). `Shift` + click on the ground adds a point at the end. `Delete` removes the point under the cursor.
+- **Closed loop**: the last point joins the first. An open path is walked there and back.
+- **In game code**: `scene::readPath(entity)` gives the points in world space and the length in whole millimeters; the `ai` module's `ai::patrolTarget` walks it (see the module's own docs).
+
 ## Hierarchy marks and handles
 
 - **Kind icons**: each row in the hierarchy starts with an icon for its kind (box, model, spawn point, area, light, camera, probe, sprite, other game kinds) drawn in the object's color.

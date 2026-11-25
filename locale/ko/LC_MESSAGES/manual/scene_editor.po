@@ -238,6 +238,27 @@ msgstr "**2D 프로젝트**: 2D 템플릿으로 만든 프로젝트(`mealkit.pro
 msgid "**Pixel snapping**: for pixel art, set `camera.pixelsPerUnit` in `assets/view.tuning` (the **Tuning** panel) to the art's pixels per meter. The 2D template's camera then zooms in whole steps, so every art pixel covers the same whole number of screen pixels (the half height you set is rounded to the nearest such zoom), and it moves on the screen-pixel grid. Sprite positions are not snapped. 0 (the default) turns it off; the 2D template sets 16. Game code of your own calls `render::snapPixelView`."
 msgstr "**픽셀 스냅**: 픽셀 아트는 `assets/view.tuning`(**Tuning** 패널)의 `camera.pixelsPerUnit`에 그림의 1m당 픽셀 수를 적는다. 그러면 2D 템플릿의 카메라가 정수 단계로 확대되어 그림의 한 픽셀이 항상 같은 정수 개의 화면 픽셀을 덮고(정한 화면 높이 절반은 가장 가까운 그런 배율로 맞춰진다), 카메라는 화면 픽셀 격자에 맞춰 움직인다. 스프라이트의 위치는 맞추지 않는다. 0(기본)이면 꺼지며, 2D 템플릿은 16으로 정해 두었다. 직접 만든 게임 코드는 `render::snapPixelView`를 부른다."
 
+msgid "Paths"
+msgstr "경로"
+
+msgid "A path is an ordered list of points that an AI character patrols. It is invisible in the game and only the simulation reads it."
+msgstr "경로는 AI 캐릭터가 순찰하는 순서 있는 점 목록이다. 게임 화면에는 보이지 않고 시뮬레이션만 읽는다."
+
+msgid "**Add**: **Add > Path**. A path with three points appears at the view's pivot; edit it in the inspector."
+msgstr "**추가**: **추가 > 경로**. 점 세 개짜리 경로가 뷰의 중심에 놓이며, 인스펙터에서 고친다."
+
+msgid "**Points**: each point has its own x, y and z in the object's space, so moving, turning or scaling the path object moves the whole path. **+** adds a point after that one, **-** removes it. The inspector shows the length in meters."
+msgstr "**점**: 점마다 객체 공간의 x, y, z가 있어서, 경로 객체를 옮기거나 돌리거나 키우면 경로 전체가 따라간다. **+**는 그 점 뒤에 점을 넣고 **-**는 지운다. 인스펙터에 길이가 미터로 나온다."
+
+msgid "**In the viewport**: the selected path is drawn as a line with an arrow on every segment and numbered points. Drag a point to move it on the ground (hold `Ctrl` to snap, or the opposite of your snap setting). `Shift` + click on the ground adds a point at the end. `Delete` removes the point under the cursor."
+msgstr "**뷰포트에서**: 고른 경로는 구간마다 화살표가 있는 선과 번호 붙은 점으로 그려진다. 점을 끌면 바닥 위에서 옮겨진다(`Ctrl`을 누르면 격자에 맞추고, 맞춤 설정이 켜져 있으면 반대로 동작한다). 바닥을 `Shift`+클릭하면 끝에 점이 늘고, `Delete`는 커서 아래 점을 지운다."
+
+msgid "**Closed loop**: the last point joins the first. An open path is walked there and back."
+msgstr "**닫힌 고리**: 마지막 점이 첫 점으로 이어진다. 열린 경로는 갔다가 되돌아온다."
+
+msgid "**In game code**: `scene::readPath(entity)` gives the points in world space and the length in whole millimeters; the `ai` module's `ai::patrolTarget` walks it (see the module's own docs)."
+msgstr "**게임 코드에서**: `scene::readPath(entity)`가 월드 좌표의 점과 밀리미터 단위 길이를 주고, `ai` 모듈의 `ai::patrolTarget`이 그 경로를 따라간다(모듈 자체 문서 참고)."
+
 msgid "Hierarchy marks and handles"
 msgstr "계층 표시와 핸들"
 
