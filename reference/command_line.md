@@ -35,7 +35,7 @@ The example game is called `sandbox`. In a game project, the executables carry t
 | `--ui-press <frame:node,...>` | Press the UI widget with that node name at that frame (screen flow tests, e.g. `20:start,50:solo`) |
 | `--gpu-capture` | Load RenderDoc or PIX if installed; `F11` captures the next frame (development builds, {doc}`../manual/editor`) |
 | `--gpu-capture-at <frame>` | Capture that frame without opening RenderDoc (tests) |
-| `--system-info` | Print CPU and GPU features and exit (exit code 2 below the minimum spec) |
+| `--system-info` | Print CPU and GPU features and exit (exit code 2 when the GPU or CPU lacks a requirement) |
 | `--benchmark [seconds]` | Benchmark mode: offline, fixed seed, bot input, vsync and sound off; measure for 30 seconds (or the given number) after a 3 second warm-up, write `benchmark.txt` and exit ({doc}`../manual/performance`) |
 | `--benchmark-out <file>` | Path of the benchmark report (default `benchmark.txt`) |
 | `--name <text>` | Player name in the lobby. Joining a running match again with the same name takes back the old slot |

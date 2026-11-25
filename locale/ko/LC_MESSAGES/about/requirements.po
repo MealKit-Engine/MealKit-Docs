@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  MealKit\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-10-20 00:37+0900\n"
+"POT-Creation-Date: 2026-11-25 15:48+0900\n"
 "PO-Revision-Date: 2026-10-18 16:00+0900\n"
 "Last-Translator: KingProtea99\n"
 "Language: ko\n"
@@ -14,7 +14,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.18.0\n"
+"Generated-By: Babel 2.19.0\n"
 
 msgid "Requirements"
 msgstr "요구사항"
@@ -25,15 +25,16 @@ msgstr "실행"
 msgid "Windows 10 1803 or later."
 msgstr "Windows 10 1803 이상."
 
-msgid "**Intel 11th generation (Xe) integrated graphics or better**: Direct3D 12 with Shader Model 6.6 and resource binding tier 3. The game checks this at startup and, if the GPU falls short, exits with the reason and the driver version. Bindless resources (Shader Model 6.6) are used from the texture work onward."
-msgstr "**Intel 11세대(Xe) 내장 그래픽 이상**: Direct3D 12, Shader Model 6.6 + 리소스 바인딩 티어 3. 게임이 시작할 때 검사하고, 모자라면 드라이버 버전과 함께 이유를 알려 주고 끝낸다. 텍스처 작업부터 Shader Model 6.6 bindless를 쓴다."
+#
+msgid "**A GPU with Direct3D 12 Shader Model 6.6 and resource binding tier 3** (Intel 11th generation (Xe) integrated graphics and newer have it). This is what the renderer's bindless design needs, not a performance target: there is no minimum spec beyond it. The game checks this at startup and, if the GPU falls short, exits with the reason and the driver version. Bindless resources (Shader Model 6.6) are used from the texture work onward."
+msgstr "**Direct3D 12 Shader Model 6.6 + 리소스 바인딩 티어 3을 지원하는 GPU**(Intel 11세대(Xe) 내장 그래픽 이상에 있다). 렌더러의 bindless 구조에 필요한 조건이지 성능 목표가 아니며, 이것 말고 최소 사양은 없다. 게임이 시작할 때 검사하고, 모자라면 드라이버 버전과 함께 이유를 알려 주고 끝낸다. 텍스처 작업부터 Shader Model 6.6 bindless를 쓴다."
 
 msgid "A CPU with SSE4.2."
 msgstr "SSE4.2를 지원하는 CPU."
 
 #, python-brace-format
-msgid "The reasons for the minimum spec are in the {engine}`decision log <docs/DECISIONS.md>`. `sandbox.exe --system-info` prints the CPU and GPU features and exits with code 2 below the minimum spec."
-msgstr "최소 사양 결정과 이유는 {engine}`결정 기록 <docs/DECISIONS.md>`에 있다. `sandbox.exe --system-info`는 CPU·GPU 기능을 출력하고, 최소 사양 미달이면 종료 코드 2로 끝난다."
+msgid "How fast a game must run is the game developer's choice: the default settings stay light, and heavier features are turned on per project (reasons in the {engine}`decision log <docs/DECISIONS.md>`, 2026-11-25). `sandbox.exe --system-info` prints the CPU and GPU features and exits with code 2 when the GPU or CPU lacks a requirement above."
+msgstr "게임이 얼마나 빨라야 하는지는 게임 개발자가 정한다. 기본 설정은 가볍게 두고, 무거운 기능은 프로젝트마다 켠다(이유는 {engine}`결정 기록 <docs/DECISIONS.md>` 2026-11-25). `sandbox.exe --system-info`는 CPU·GPU 기능을 출력하고, GPU나 CPU가 위 조건을 갖추지 못하면 종료 코드 2로 끝낸다."
 
 msgid "Building"
 msgstr "빌드"

@@ -27,7 +27,7 @@ The frame budget and the profiler are in {doc}`../../manual/performance`. The co
 
 The shaders are compiled at build time by DXC into header files with byte arrays (`g_ForwardVS.h`, `g_UiPS.h`, ...), see {engine}`engine/CMakeLists.txt`.
 Every build makes both DXIL (Direct3D 12) and SPIR-V (Vulkan 1.3); the header for the build's backend is in `shaders/`, the other one in `shaders/other/` only to check that it compiles. DXC is a pinned release that the build downloads once ({engine}`cmake/Dxc.cmake`).
-They use shader model 6.6 profiles (`vs_6_6`, `ps_6_6`), the minimum spec. Debug builds keep debug information (`-Zi -Qembed_debug -Od`), other builds are optimized and stripped (`-O3 -Qstrip_debug -Qstrip_reflect`).
+They use shader model 6.6 profiles (`vs_6_6`, `ps_6_6`), the GPU requirement. Debug builds keep debug information (`-Zi -Qembed_debug -Od`), other builds are optimized and stripped (`-O3 -Qstrip_debug -Qstrip_reflect`).
 The game therefore needs no shader compiler at run time and no shader files next to the exe.
 
 In development builds (every build with the debug UI, not `build.bat Export`) the shaders can be edited while the game or the editor runs. `render::ShaderReloader` ({engine}`engine/src/mealkit/render/ShaderReload.h`) checks the files in `engine/shaders` every half second, compiles a changed shader (all of them when `Bindless.hlsli` changes) with the same DXC and options as the build in a background process, and swaps the pipeline with `rhi::Device::recreatePipeline` before the next frame. The log says `Shader reloaded: Forward.hlsl`. A compile error is logged with DXC's output and the old shader stays in use. On a PC without the engine folder or DXC, reloading is off.
@@ -72,7 +72,7 @@ The DX12 shapes map to Vulkan like this:
 Vulkan's clip space has y pointing down. `setViewport` gives the viewport a negative height, so the same shaders and the same clockwise front faces as Direct3D 12 produce the same image.
 A copy or a barrier ends the current dynamic rendering pass (Vulkan does not allow them inside one), which is why the RHI asks callers to bind the target again after copies.
 With `--debug`, the Vulkan backend turns on `VK_LAYER_KHRONOS_validation` when the Vulkan SDK is installed and sends its warnings and errors to the engine log as `[Vulkan]` lines.
-The minimum spec for this backend is Vulkan 1.3 with descriptor indexing, dynamic rendering, synchronization2, demote to helper invocation and a `B10G11R11` format that can be drawn, blended and filtered (the HDR scene target); Intel 11th gen integrated graphics has them.
+The requirement for this backend is Vulkan 1.3 with descriptor indexing, dynamic rendering, synchronization2, demote to helper invocation and a `B10G11R11` format that can be drawn, blended and filtered (the HDR scene target); Intel 11th gen integrated graphics has them.
 Profile builds do not time the GPU with Tracy on Vulkan yet (the engine's own GPU timers, below, work on both backends).
 
 ## Starting up
@@ -81,7 +81,7 @@ Profile builds do not time the GPU with Tracy on Vulkan yet (the engine's own GP
 
 1. Creates a DXGI 1.6 factory and picks the first hardware adapter in high-performance order that can create a Direct3D 12 device (software adapters are skipped).
 2. Reads what the GPU supports (`describeGpu`): adapter name, driver version, feature level, highest shader model, resource binding tier, wave lane counts, mesh shader tier and whether memory is shared with the CPU (UMA, as on integrated graphics).
-3. Refuses GPUs below the minimum (`gpuMinimumError`): shader model 6.6 and resource binding tier 3, which Intel 11th gen integrated graphics has. The message names the driver version, because an old driver on a good GPU often reports a lower shader model.
+3. Refuses GPUs below the requirement (`gpuMinimumError`): shader model 6.6 and resource binding tier 3, which Intel 11th gen integrated graphics has. The message names the driver version, because an old driver on a good GPU often reports a lower shader model.
 4. Creates one direct command queue and a flip-model swap chain with 3 back buffers, a frame latency waitable object (at most 2 frames queued) and tearing support when the system has it.
 5. Creates two render target views per back buffer: an `R8G8B8A8_UNORM_SRGB` view for the 3D pass (the shader writes linear color and the hardware encodes gamma) and an `R8G8B8A8_UNORM` overlay view for UI and ImGui, whose colors are already sRGB.
 6. Creates one shader-visible descriptor heap (16 buffer slots, then 4,096 texture slots), the upload ring with its raw buffer view in slot 0, the shared root signature and a 32-bit float depth buffer.

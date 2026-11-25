@@ -16,7 +16,7 @@ sandbox.exe --host                   :: host a room (UDP 27015) and wait in the 
 sandbox.exe --join 192.168.0.10      :: join
 sandbox.exe --steam                  :: create a Steam friends lobby (needs the Steamworks SDK)
 sandbox.exe --scene my.scene         :: play another scene
-sandbox.exe --system-info            :: print CPU and GPU features (exit code 2 below the minimum spec)
+sandbox.exe --system-info            :: print CPU and GPU features (exit code 2 when the GPU or CPU lacks a requirement)
 sandbox.exe --help                   :: all options
 ```
 

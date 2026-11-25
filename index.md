@@ -1,6 +1,6 @@
 # MealKit documentation
 
-MealKit is a lightweight **3D multiplayer game engine** that runs fast even on office PCs with Intel integrated graphics.
+MealKit is a lightweight **3D multiplayer game engine** with a light default that runs fast even on integrated graphics, and heavier features you turn on per project.
 Today it targets Windows and DirectX 12. Other platforms come in stage 5 of the roadmap.
 
 This documentation is written in English and translated into Korean. Rules that change together with engine code

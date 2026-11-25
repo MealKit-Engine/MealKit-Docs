@@ -3,10 +3,10 @@
 ## Running
 
 - Windows 10 1803 or later.
-- **Intel 11th generation (Xe) integrated graphics or better**: Direct3D 12 with Shader Model 6.6 and resource binding tier 3. The game checks this at startup and, if the GPU falls short, exits with the reason and the driver version. Bindless resources (Shader Model 6.6) are used from the texture work onward.
+- **A GPU with Direct3D 12 Shader Model 6.6 and resource binding tier 3** (Intel 11th generation (Xe) integrated graphics and newer have it). This is what the renderer's bindless design needs, not a performance target: there is no minimum spec beyond it. The game checks this at startup and, if the GPU falls short, exits with the reason and the driver version. Bindless resources (Shader Model 6.6) are used from the texture work onward.
 - A CPU with SSE4.2.
 
-The reasons for the minimum spec are in the {engine}`decision log <docs/DECISIONS.md>`. `sandbox.exe --system-info` prints the CPU and GPU features and exits with code 2 below the minimum spec.
+How fast a game must run is the game developer's choice: the default settings stay light, and heavier features are turned on per project (reasons in the {engine}`decision log <docs/DECISIONS.md>`, 2026-11-25). `sandbox.exe --system-info` prints the CPU and GPU features and exits with code 2 when the GPU or CPU lacks a requirement above.
 
 ## Building
 

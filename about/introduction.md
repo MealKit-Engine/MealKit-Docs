@@ -1,6 +1,6 @@
 # Introduction
 
-MealKit is a **3D multiplayer game engine** that stays light and fast on office PCs with Intel integrated graphics.
+MealKit is a **3D multiplayer game engine** with a light default that stays fast even on integrated graphics, and heavier features you turn on per project.
 Today it runs on Windows with DirectX 12. Other platforms are planned for stage 5 of the {engine}`roadmap <docs/ROADMAP.md>`.
 
 ## Principles
@@ -40,7 +40,7 @@ Measurements (Intel Core Ultra 5 125U integrated graphics, 1280×720, vsync off,
 | 4-player network (8,000 boxes) | about 5 KB/s total sent by the host, independent of the number of objects |
 | Executables | shipped game about 1.4 MB (static CRT, no redistributable needed). Editor: `MealKitEditor.exe` 1.8 MB + `mealkit.dll` 2.7 MB, game DLL about 0.1 MB |
 
-The performance budget for the minimum spec is in {doc}`../manual/performance`.
+The performance budget of the default settings is in {doc}`../manual/performance`.
 
 ## Voice chat
 

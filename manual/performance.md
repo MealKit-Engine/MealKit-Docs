@@ -2,7 +2,7 @@
 
 ## Budget
 
-The minimum spec is Intel 11th generation (Xe) integrated graphics at 1280×720 and 60 fps. Features that exceed the budget must be possible to turn off.
+There is no minimum spec. The budget below is what the default settings cost at 1280×720 and 60 fps on the reference PC (Intel Core Ultra 5 125U integrated graphics): a reference for choosing features, not a guarantee. Features beyond the default are turned on per project, cost nothing when off, and are turned off on devices that lack them.
 
 | Item | Budget |
 |---|---|
@@ -68,7 +68,7 @@ The report lists the game version and commit, CPU, GPU and driver, the screen si
 
 ### GPU budget per pass
 
-The 8 ms GPU frame is split into budgets per kind of work, so an artist knows how much room a feature has. The values are in `mealkit.project` (**Project > Settings**) and will be corrected from measurements on the minimum spec:
+The 8 ms GPU frame is split into budgets per kind of work, so an artist knows how much room a feature has. The values are in `mealkit.project` (**Project > Settings**) and will be corrected from measurements on the reference PC:
 
 | Pass | Setting | Default |
 |---|---|---|
