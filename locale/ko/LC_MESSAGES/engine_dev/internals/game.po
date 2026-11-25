@@ -378,6 +378,18 @@ msgstr "혼자 실행은 쉬지 않는다. 네트워크 실행은 그 반복에 
 msgid "At the exit tick it prints the same `FINAL` and `SHADOW` lines as the exe. How to run it is in {doc}`../../manual/multiplayer` and {doc}`../testing`."
 msgstr "끝 틱에서 exe와 같은 `FINAL`·`SHADOW` 줄을 출력한다. 실행하는 법은 {doc}`../../manual/multiplayer`와 {doc}`../testing`에 있다."
 
+msgid "Learning-agent environment"
+msgstr "학습 에이전트 환경"
+
+msgid "`--gym` on a headless exe ({engine}`engine/src/mealkit/game/Gym.h`) turns the match into a gym-style environment for a trainer written in any language. The exe reads one JSON object per line on stdin and answers with one JSON line on stdout. Engine log lines start with `[`, so skip lines that do not start with `{`."
+msgstr "헤드리스 exe의 `--gym`({engine}`engine/src/mealkit/game/Gym.h`)은 매치를 어떤 언어로 만든 학습기와 붙일 수 있는 gym 방식 환경으로 바꾼다. exe는 stdin에서 한 줄에 JSON 객체 하나를 읽고 stdout에 JSON 한 줄로 답한다. 엔진 로그 줄은 `[`로 시작하니 `{`로 시작하지 않는 줄은 건너뛴다."
+
+msgid "`--players N` sets the player count, `--exit-tick T` ends an episode after T ticks, and `--seed` is the default seed of `reset`. A bad line answers `{\"ok\":false,\"error\":\"..\"}` and the exe keeps running. The run uses the same `startWorld` and `World::step` as every other mode, outside the simulation, so the same seed and actions give the same `hash` on every machine."
+msgstr "`--players N`은 플레이어 수, `--exit-tick T`는 T틱 뒤 에피소드 끝, `--seed`는 `reset`의 기본 시드다. 잘못된 줄에는 `{\"ok\":false,\"error\":\"..\"}`로 답하고 계속 돈다. 다른 모드와 같은 `startWorld`·`World::step`을 시뮬레이션 밖에서 쓰므로 같은 시드와 행동이면 어느 PC에서나 `hash`가 같다."
+
+msgid "The game declares what an agent sees and does with optional static functions on its headless class: `gymAction(player, action)` (default: the numbers are the input bytes, negative numbers wrap as `i8`), `gymObserve(world, player, out)`, `gymReward(world, player)` and `gymDone(world)`. Without them an observation is empty and the reward is 0. Inference inside the simulation is not part of this: a model running in `sim/` would have to be bitwise deterministic, so run it on the trainer or view side. An ONNX runtime is not included."
+msgstr "게임은 헤드리스 클래스의 선택적 static 함수로 에이전트가 보고 하는 것을 정한다: `gymAction(player, action)`(기본: 숫자가 입력 바이트, 음수는 `i8`로 감김), `gymObserve(world, player, out)`, `gymReward(world, player)`, `gymDone(world)`. 없으면 관측은 비고 보상은 0이다. 시뮬레이션 안의 추론은 포함하지 않는다: `sim/`에서 도는 모델은 비트 단위로 결정적이어야 하므로 학습기나 view 쪽에서 돌린다. ONNX 런타임은 들어 있지 않다."
+
 msgid "Input recordings and hash logs"
 msgstr "입력 기록과 해시 로그"
 

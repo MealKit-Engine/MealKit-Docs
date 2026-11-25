@@ -190,6 +190,21 @@ The headless loop is like `runGame` without drawing:
 
 At the exit tick it prints the same `FINAL` and `SHADOW` lines as the exe. How to run it is in {doc}`../../manual/multiplayer` and {doc}`../testing`.
 
+## Learning-agent environment
+
+`--gym` on a headless exe ({engine}`engine/src/mealkit/game/Gym.h`) turns the match into a gym-style environment for a trainer written in any language. The exe reads one JSON object per line on stdin and answers with one JSON line on stdout. Engine log lines start with `[`, so skip lines that do not start with `{`.
+
+```text
+{"cmd":"reset","seed":7}                -> {"ok":true,"tick":0,"hash":"..","obs":[[..]],"reward":[..],"done":false}
+{"cmd":"step","actions":[[..],[..]]}    one tick; "repeat":k runs k ticks with the same actions
+{"cmd":"step","action":[..]}            player 0 only, the other players send zero input
+{"cmd":"close"}                         -> {"ok":true}, then the program exits
+```
+
+`--players N` sets the player count, `--exit-tick T` ends an episode after T ticks, and `--seed` is the default seed of `reset`. A bad line answers `{"ok":false,"error":".."}` and the exe keeps running. The run uses the same `startWorld` and `World::step` as every other mode, outside the simulation, so the same seed and actions give the same `hash` on every machine.
+
+The game declares what an agent sees and does with optional static functions on its headless class: `gymAction(player, action)` (default: the numbers are the input bytes, negative numbers wrap as `i8`), `gymObserve(world, player, out)`, `gymReward(world, player)` and `gymDone(world)`. Without them an observation is empty and the reward is 0. Inference inside the simulation is not part of this: a model running in `sim/` would have to be bitwise deterministic, so run it on the trainer or view side. An ONNX runtime is not included.
+
 ## Input recordings and hash logs
 
 {engine}`engine/src/mealkit/game/InputRecord.h` writes two kinds of files.
