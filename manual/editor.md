@@ -27,6 +27,7 @@ The general-purpose editor `MealKitEditor` runs the game in play mode, edits tun
 - **Unsaved list**: when something is unsaved, click `Unsaved: N` in the status bar to save or revert each document.
 - **Table views**: on a table page, filter rows, click a column header to sort, and edit the chosen row in the list below. Sorting only changes the view, not the file.
 - **Find Uses**: right-click a file in **Assets** to list the text files that name it.
+- **Used by / Uses**: the preview pane of a selected file lists the text files that name it (and the project settings, if they do) and, for a scene, table or other text file, the assets it names. Click a line to open or select that file.
 - **Saved layouts**: **Window > Layout** saves the current layout under a name. The **Window** menu also turns panels on and off; playing reopens the viewport.
 - **State graphs**: on the **State** page of **Debug**, add a field path to graph it while playing.
 - **Log**: **Window > Debug**, Log page, shows engine and game log lines, with what is wrong right now above them: missing models, models over budget and missing row references. Click a problem to open the document (objects are fixed in MkRender); the flag button shows or hides the list. The info, warning and error buttons filter the lines, the search box finds a line, and the trash button empties the log.

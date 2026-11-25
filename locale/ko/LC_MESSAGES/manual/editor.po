@@ -115,6 +115,9 @@ msgstr "**표 보기**: 표 페이지에서 행을 거르고, 열 머리글을 �
 msgid "**Find Uses**: right-click a file in **Assets** to list the text files that name it."
 msgstr "**사용처 찾기**: **에셋**에서 파일을 오른쪽 클릭하면 그 파일을 적어 둔 텍스트 파일 목록이 나온다."
 
+msgid "**Used by / Uses**: the preview pane of a selected file lists the text files that name it (and the project settings, if they do) and, for a scene, table or other text file, the assets it names. Click a line to open or select that file."
+msgstr "**쓰는 곳 / 쓰는 에셋**: 파일을 고르면 미리보기 창에 그 파일을 적어 둔 텍스트 파일(프로젝트 설정에 있으면 그것도)과, 씬·표 같은 텍스트 파일이 적어 둔 에셋이 나온다. 줄을 누르면 그 파일을 열거나 고른다."
+
 msgid "**Saved layouts**: **Window > Layout** saves the current layout under a name. The **Window** menu also turns panels on and off; playing reopens the viewport."
 msgstr "**레이아웃 저장**: **창 > 레이아웃**에서 지금 배치를 이름을 붙여 저장한다. **창** 메뉴에서 패널을 켜고 끌 수 있고, 플레이를 시작하면 뷰포트가 다시 켜진다."
 
