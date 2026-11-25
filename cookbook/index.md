@@ -9,6 +9,7 @@ cooldowns
 new_input
 rounds
 event_feedback
+new_table_kind
 ```
 
 ## Test multiplayer on one PC
