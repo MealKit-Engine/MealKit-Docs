@@ -30,6 +30,16 @@ The panel shows the budget of the model's kind, read from `mealkit.project`. **C
 
 All exported objects become **one model**: the engine merges the meshes and bakes their transforms.
 
+## Models from FBX (Mixamo, Cascadeur, 3ds Max)
+
+The engine reads glTF only. Convert an `.fbx` with Blender, without a window:
+
+```bat
+tools\fbx_to_glb.ps1 -Path art\characters\hero.fbx -Out assets\models\characters
+```
+
+`-Path` can be a folder (every `.fbx` inside is converted). Blender is found through `MEALKIT_BLENDER`, the usual install folder or `PATH`. Skeleton and animation clips are kept (each clip becomes one engine clip). Keep the `.fbx` in `art/`: an `.fbx` inside `assets/` is a layout error whose message names this step. Open the converted model in Blender and use **Check** to see what the engine will not show, or import the `.fbx` into Blender, fix it and use **Export to MealKit** when the converted file needs changes.
+
 ## What the engine reads
 
 | Supported | Not yet |
