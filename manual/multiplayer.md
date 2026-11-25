@@ -1,7 +1,7 @@
 # Multiplayer and determinism
 
 MealKit multiplayer is **deterministic input lockstep**. Peers send only their inputs (8 bytes per player per tick), every PC runs the same simulation, and state hashes detect desyncs.
-The host is both a player and the relay. There is no dedicated server.
+The host is both a player and the relay, or, in a headless server run with `--dedicated`, only the relay (see "Dedicated server" below).
 
 ## Playing together
 
@@ -196,3 +196,13 @@ Epic's terms do not allow the EOS SDK in the repository either. EOS lobbies and 
 - Set `mixInputKinds` to `false` in `mealkit.project` to keep a room to one kind of input: the host then refuses joiners whose device differs from its own ("This room only takes players using gamepad"). Players already in the room are not removed when they switch devices.
 - Players can turn **Crossplay** off in the gameplay settings. They then only meet players on the same operating system: LAN rooms on other systems are hidden, and joining one is refused. Either side turning it off is enough.
 - Joining a match only needs the simulation data to match. Model files count only by their physics hulls, so textures, materials and per-platform cooking don't split players.
+
+## Dedicated server
+
+A game developer who wants a host that nobody plays on runs the headless exe as a server and keeps it reachable themself (the engine ships no hosting or matchmaking):
+
+```bat
+sandbox_headless.exe --dedicated --host 27015 --players 6 --auto-start 2 --match-data 2000
+```
+
+The server keeps slot 0 and plays nobody, so clients are players 1 to 7 (`--players` is at most 7) and the game must treat slot 0 as a player who is not connected. It is not listed in the lobby and starts the match by itself once `--auto-start` clients have joined. One process runs one match and exits when the last client leaves. There is no host migration: when the server closes or dies, the match ends for everyone. All clients still run the whole simulation, so a dedicated server removes the host's input-delay advantage and the NAT problem but does not stop cheating or hide information.

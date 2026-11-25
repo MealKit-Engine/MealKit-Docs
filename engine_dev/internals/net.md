@@ -28,13 +28,19 @@ The lockstep session never uses a socket directly. It uses `net::Transport` ({en
 `net::LockstepSession` ({engine}`engine/src/mealkit/net/Lockstep.cpp`) runs deterministic lockstep. Every peer runs the same simulation, and the network carries only each tick's player inputs.
 Bandwidth therefore does not depend on how many objects the game has. The reasons for this model are in {engine}`docs/DECISIONS.md`.
 
-The host is a player and also the relay. There is no dedicated server:
+The host is a player and also the relay. A dedicated server (`hostDedicated`) is the same host that plays nobody (see below):
 
 1. Each peer, when it runs tick T, submits its own input for tick T + input delay.
 2. Clients send their inputs to the host. When the host has every player's input for a tick, it **finalizes** that tick and sends it to all peers in a bundle.
 3. A peer can run only finalized ticks. When an input is late, the simulation waits, and drawing goes on.
 
 A player input is 8 bytes (`kInputBytes`). What the bytes mean is up to the game. A session has at most 8 players (`kMaxPlayers`).
+
+### Dedicated server
+
+`LockstepSession::hostDedicated` is the same host with one change: it keeps slot 0 without playing. The protocol is untouched, so determinism, replays, late join and desync dumps work as before.
+Slot 0 is never waited for (`requiredFrom[0]` is `kNoTick`), a disconnect presence for slot 0 is queued at the start so every simulation sees it as not connected, the lobby and `startMatch` number clients from 1, and `maxPlayers` is at most `kMaxPlayers - 1`.
+Its succession list holds only itself and it never sends `Handoff`, so clients find no successor and end the match when it goes away. The server's simulation submits empty input every tick, which is how its slots are claimed so ticks confirm even when every client has left. The headless runner (`--dedicated`) starts at `--auto-start` clients and exits when the last one leaves.
 
 ### Input delay
 

@@ -19,8 +19,8 @@ msgstr ""
 msgid "Multiplayer and determinism"
 msgstr "멀티플레이와 결정론"
 
-msgid "MealKit multiplayer is **deterministic input lockstep**. Peers send only their inputs (8 bytes per player per tick), every PC runs the same simulation, and state hashes detect desyncs. The host is both a player and the relay. There is no dedicated server."
-msgstr "MealKit 멀티플레이는 **결정론 입력 락스텝**이다. 피어는 입력만 보내고(틱당 플레이어별 8바이트) 모든 PC가 같은 시뮬레이션을 돌리며, 상태 해시로 디싱크를 감지한다. 호스트(방장)가 플레이어이자 중계자다. 전용 서버는 없다."
+msgid "MealKit multiplayer is **deterministic input lockstep**. Peers send only their inputs (8 bytes per player per tick), every PC runs the same simulation, and state hashes detect desyncs. The host is both a player and the relay, or, in a headless server run with `--dedicated`, only the relay (see \"Dedicated server\" below)."
+msgstr "MealKit 멀티플레이는 **결정론 입력 락스텝**이다. 피어는 입력만 보내고(틱당 플레이어별 8바이트) 모든 PC가 같은 시뮬레이션을 돌리며, 상태 해시로 디싱크를 감지한다. 호스트(방장)가 플레이어이자 중계자이고, `--dedicated`로 띄운 헤드리스 서버에서는 중계자만 된다(아래 \"전용 서버\" 참고)."
 
 msgid "Playing together"
 msgstr "같이 플레이하기"
@@ -367,3 +367,11 @@ msgstr "플레이어는 게임플레이 설정에서 **크로스플레이**를 �
 msgid "Joining a match only needs the simulation data to match. Model files count only by their physics hulls, so textures, materials and per-platform cooking don't split players."
 msgstr "매치에 참가하려면 시뮬레이션 데이터만 같으면 됩니다. 모델 파일은 물리 헐만 비교하므로 텍스처, 머티리얼, 플랫폼별 쿠킹이 달라도 함께할 수 있습니다."
 
+msgid "Dedicated server"
+msgstr "전용 서버"
+
+msgid "A game developer who wants a host that nobody plays on runs the headless exe as a server and keeps it reachable themself (the engine ships no hosting or matchmaking):"
+msgstr "아무도 플레이하지 않는 호스트가 필요한 게임 개발자는 헤드리스 exe를 서버로 띄우고 접속 가능하게 직접 관리한다(엔진은 호스팅이나 매치메이킹을 제공하지 않는다):"
+
+msgid "The server keeps slot 0 and plays nobody, so clients are players 1 to 7 (`--players` is at most 7) and the game must treat slot 0 as a player who is not connected. It is not listed in the lobby and starts the match by itself once `--auto-start` clients have joined. One process runs one match and exits when the last client leaves. There is no host migration: when the server closes or dies, the match ends for everyone. All clients still run the whole simulation, so a dedicated server removes the host's input-delay advantage and the NAT problem but does not stop cheating or hide information."
+msgstr "서버는 슬롯 0을 차지하고 아무도 플레이하지 않으므로 클라이언트는 플레이어 1~7이 되고(`--players`는 최대 7) 게임은 슬롯 0을 접속하지 않은 플레이어로 다뤄야 한다. 로비 목록에 나오지 않고 `--auto-start` 명의 클라이언트가 들어오면 스스로 매치를 시작한다. 프로세스 하나가 매치 하나를 돌리고 마지막 클라이언트가 나가면 끝난다. 호스트 이전은 없다: 서버가 닫히거나 죽으면 모두의 매치가 끝난다. 모든 클라이언트가 여전히 전체 시뮬레이션을 돌리므로, 전용 서버는 호스트의 입력 지연 이점과 NAT 문제를 없애지만 치팅을 막거나 정보를 숨기지는 않는다.

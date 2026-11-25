@@ -72,8 +72,8 @@ msgstr "락스텝"
 msgid "`net::LockstepSession` ({engine}`engine/src/mealkit/net/Lockstep.cpp`) runs deterministic lockstep. Every peer runs the same simulation, and the network carries only each tick's player inputs. Bandwidth therefore does not depend on how many objects the game has. The reasons for this model are in {engine}`docs/DECISIONS.md`."
 msgstr "`net::LockstepSession`({engine}`engine/src/mealkit/net/Lockstep.cpp`)은 결정론적 락스텝을 돌린다. 모든 피어가 같은 시뮬레이션을 돌리고, 네트워크로는 틱마다 플레이어 입력만 오간다. 그래서 대역폭이 게임의 물체 수와 상관없다. 이 방식을 고른 이유는 {engine}`docs/DECISIONS.md`에 있다."
 
-msgid "The host is a player and also the relay. There is no dedicated server:"
-msgstr "호스트는 플레이어이면서 중계자다. 전용 서버는 없다:"
+msgid "The host is a player and also the relay. A dedicated server (`hostDedicated`) is the same host that plays nobody (see below):"
+msgstr "호스트는 플레이어이면서 중계자다. 전용 서버(`hostDedicated`)는 아무도 플레이하지 않는 같은 호스트다(아래 참고):"
 
 msgid "Each peer, when it runs tick T, submits its own input for tick T + input delay."
 msgstr "각 피어는 틱 T를 실행할 때 자기 입력을 틱 T + 입력 지연용으로 제출한다."
@@ -363,3 +363,8 @@ msgstr "`Reader`, `Writer`"
 msgid "Reads past the end set a failure flag and return zeros, so a short or broken packet is dropped instead of reading memory it does not own."
 msgstr "끝을 넘어 읽으면 실패 표시를 하고 0을 돌려준다. 그래서 짧거나 깨진 패킷은 자기 것이 아닌 메모리를 읽지 않고 버려진다."
 
+msgid "Dedicated server"
+msgstr "전용 서버"
+
+msgid "`LockstepSession::hostDedicated` is the same host with one change: it keeps slot 0 without playing. The protocol is untouched, so determinism, replays, late join and desync dumps work as before. Slot 0 is never waited for (`requiredFrom[0]` is `kNoTick`), a disconnect presence for slot 0 is queued at the start so every simulation sees it as not connected, the lobby and `startMatch` number clients from 1, and `maxPlayers` is at most `kMaxPlayers - 1`. Its succession list holds only itself and it never sends `Handoff`, so clients find no successor and end the match when it goes away. The server's simulation submits empty input every tick, which is how its slots are claimed so ticks confirm even when every client has left. The headless runner (`--dedicated`) starts at `--auto-start` clients and exits when the last one leaves."
+msgstr "`LockstepSession::hostDedicated`는 한 가지만 다른 같은 호스트다: 플레이하지 않고 슬롯 0만 차지한다. 프로토콜은 그대로라서 결정론, 리플레이, 중도 참가, 디싱크 덤프가 전과 같이 동작한다. 슬롯 0의 입력은 기다리지 않고(`requiredFrom[0]`이 `kNoTick`), 시작할 때 슬롯 0의 접속 종료 presence를 큐에 넣어 모든 시뮬레이션이 접속하지 않은 것으로 보게 하며, 로비와 `startMatch`는 클라이언트를 1부터 매기고, `maxPlayers`는 최대 `kMaxPlayers - 1`이다. 승계 목록에는 자신만 들어 있고 `Handoff`를 보내지 않으므로, 서버가 사라지면 클라이언트는 이어받을 사람을 찾지 못하고 매치를 끝낸다. 서버의 시뮬레이션은 매 틱 빈 입력을 제출하며, 이것이 슬롯을 점유해 클라이언트가 모두 나가도 틱이 확정되게 한다. 헤드리스 실행기(`--dedicated`)는 `--auto-start`명이 모이면 시작하고 마지막 클라이언트가 나가면 끝난다.
