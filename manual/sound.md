@@ -128,6 +128,7 @@ The event type is a `MEALKIT_STRUCT` whose first `MEALKIT_ENUM` field is the eve
 | `shake`, `shakeSeconds`, `shakeFrequency`, `shakeRange` | Camera shake: size at full strength, time, speed, and the distance where it fades out |
 | `flash`, `flashSeconds`, `flashColor` | Screen flash: strength, time and color |
 | `hitStop` | Hit stop: the view freezes for this many seconds |
+| `squash`, `squashFrequency`, `squashDamping`, `targetFrom` | Object squash and stretch: a spring kicked on the object whose id is in the `targetFrom` field (negative `squash` squashes, positive stretches), its frequency in Hz and damping (1 is no wobble). View code multiplies `ctx.feedback.objectSquash(id)` into the object's scale with `feedback::squashScale` |
 | `effect` | A particle effect played at the event position (`assets/effects/<name>.fx`, the strength scales the particle count) |
 
 **Hit stop freezes only the view.** The simulation keeps running in lockstep with the other players; when the stop ends, the view jumps back to the current state.

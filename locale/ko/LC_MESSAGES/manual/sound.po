@@ -505,6 +505,21 @@ msgstr "`hitStop`"
 msgid "Hit stop: the view freezes for this many seconds"
 msgstr "화면 정지: 이 초만큼 화면이 멈춘다"
 
+msgid "`squash`, `squashFrequency`, `squashDamping`, `targetFrom`"
+msgstr "`squash`, `squashFrequency`, `squashDamping`, `targetFrom`"
+
+msgid ""
+"Object squash and stretch: a spring kicked on the object whose id is in the "
+"`targetFrom` field (negative `squash` squashes, positive stretches), its "
+"frequency in Hz and damping (1 is no wobble). View code multiplies "
+"`ctx.feedback.objectSquash(id)` into the object's scale with "
+"`feedback::squashScale`"
+msgstr ""
+"물체 스쿼시와 스트레치: `targetFrom` 필드의 번호를 가진 물체에 스프링을 친다 "
+"(`squash`가 음수면 눌리고 양수면 늘어난다). 진동수(Hz)와 감쇠(1이면 출렁임 없음). "
+"뷰 코드는 `ctx.feedback.objectSquash(id)`를 `feedback::squashScale`로 바꿔 물체의 "
+"scale에 곱한다"
+
 msgid "`effect`"
 msgstr "`effect`"
 
