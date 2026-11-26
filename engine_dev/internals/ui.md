@@ -26,6 +26,7 @@ One line is one property, `name value...`. Lines starting with `#` are comments.
 - `use <name> <component.ui>` puts the board of another file here as a frame. `set <child> <property> <value>` inside it changes a property of one of the component's nodes.
 - Board-level lines: `navigation` (keyboard and gamepad move between widgets), `firstFocus <node>` and `back <action>`.
 - Colors are `#RRGGBB` or `#RRGGBBAA`, or a theme token `$name` from `assets/ui/theme.ui` (`color <name> #...` and `number <name> <value>` lines). Number tokens are replaced when the file is read; color tokens are looked up when the screen is loaded.
+- `style <name>` ... `end` blocks stand above the board or in `theme.ui`. A node's property lines are collected until its `end`; if one of them is `style`, `expandStyles` builds the final list (styles first, a later layer replacing earlier lines of the same property) before they are applied. The runtime keeps nothing about styles per frame.
 
 `parseDocument` ({engine}`engine/src/mealkit/ui/Document.cpp`) keeps a stack of open nodes. A property line goes to the node on top of the stack through `applyProperty`, the same function that later applies state overrides (`on hover ...`).
 Errors are collected as `file(line): message` and the parser continues, so a screen with one typo still shows. A missing `end`, a second board or a property outside a node are errors.

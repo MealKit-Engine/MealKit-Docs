@@ -38,12 +38,45 @@ The scale is `min(width / board width, height / board height) × UI scale`. The 
 | Images | `src ui/icon.png`, `slice <left> <top> <right> <bottom>` (9-slice), `tint <color>` |
 | Text | `key <strings key>` or `content <text>`, `font`, `fontSize`, `color`, `letterSpacing`, `lineHeight`, `textAlign`, `verticalAlign`, `underline`, `strike`, `transform`, `wrap word\|syllable\|none`, `overflow ellipsis`, `maxLines`, `squeeze` (a line wider than the box is squeezed sideways to fit), `outline <width> [color]` (an outline outside the glyphs; without a color the text's own, which makes it bolder), `skew <degrees>` (slanted like italics, -60 to 60, positive leans the tops right; for fonts without an italic face), `span <tag> <property> <value> ...` |
 | States | `on hover\|pressed\|focus\|disabled\|checked <property line>`, `transition <seconds>` |
+| Styles | `style <name> [name...]` (see [Styles](#styles)) |
 | Board lines | `navigation` (keyboard and gamepad focus, for menus), `firstFocus <node>`, `back <action>` |
 | Other | `id <Penpot shape id>` (written by the plugin; the layout check finds nodes by it) |
 
-Colors are `#RRGGBB[AA]` or `$token` from the theme `assets/ui/theme.ui` (`color <name> #...`, `number <name> <value>`). Text with several styles uses numbered tags from the string table, `<1>...</1>`, styled by `span 1 ...`.
+Colors are `#RRGGBB[AA]` or `$token` from the theme `assets/ui/theme.ui` (`color <name> #...`, `number <name> <value>`, and [styles](#styles)). Text with several styles uses numbered tags from the string table, `<1>...</1>`, styled by `span 1 ...`.
 Korean text breaks between syllables (`wrap syllable`, the default); `wrap word` breaks only at spaces. Characters missing from one font are taken from another font in `assets/fonts`.
 Files are reloaded within a quarter second when they change, also during play. Errors are logged as `file(line): ...`.
+
+## Styles
+
+A style is a named group of property lines, so a look that repeats is written once. Styles shared by every screen go in `assets/ui/theme.ui`; a style for one screen or component goes in its file, above the `board` line. A node takes styles with `style <name> [name...]`:
+
+```text
+style button
+  radius $radius
+  fill $button
+  on hover fill $buttonHover
+end
+style danger
+  style button
+  fill #802020
+end
+
+board menu 1920 1080
+  frame quit
+    style danger
+    size 260 56
+    button menu.quit
+  end
+end
+```
+
+- A style can hold any property line of a node, state lines and widgets included, but not `id`, `set` or child nodes. A `style` line inside it builds on other styles.
+- Precedence, lowest first: the styles a style builds on, the style itself, later names on the line, the node's own lines. Where the node writes its own line does not matter.
+- A later one replaces the earlier lines of the same property: `shadow` lines as a set, `span` per tag, `on` lines per state and property, `key` and `content` together, and one widget. A style used twice applies once.
+- A state line still wins over the plain property while the state is on: a style's `on hover fill` replaces the node's own `fill` under the mouse.
+- `hidden`, `clip`, `absolute`, `underline` and `strike` can be set by a style but not unset.
+- A screen's style hides a theme style of the same name in that file. A theme style builds only on theme styles. A component sees its own styles and the theme's; `set <child> style <name>` uses the styles of the screen that writes it.
+- Styles apply only where they are named. An unknown name, or a style that builds on itself, is reported with the file and line.
 
 ## Designing in Penpot
 
@@ -160,7 +193,7 @@ Screens are edited in the **MkUI Designer**, a separate tool from the MkUI repos
 
 - **Files, Tree, Source**: pick a screen; the tree and the source text edit the same file, with comments and order kept. **New screen** writes `ui/<name>.ui` with an empty 1920×1080 board.
 - **Preview**: draws the screen as the game does, at a chosen resolution and language. The wheel zooms, the middle button pans, `F` fits. Click a box to select it, drag it to move it, drag its handles to resize it (`Shift` snaps to 10 units). With **Interact** on, buttons, sliders and inputs work and their actions are listed under **Problems**.
-- **Properties**: rows for position, width and height (Fixed, Fit content or Fill), the anchor (the edge or center a node outside a layout keeps its distance to, with stretch and scale), how a frame places its children (free, row, column or grid, with wrap, justify, align, gap and padding), fill and text color, corner radius, opacity, text content, size, font and alignment, the image file, and **Behaviour** (button, toggle, slider, list, scroll area or text input, with its action and field). Below them every line of the node as text.
+- **Properties**: **Styles** picks the node's styles, and the rows show the value the node ends up with; editing a row writes the node's own line (style blocks are edited in **Source**, theme styles in a text editor). There are rows for position, width and height (Fixed, Fit content or Fill), the anchor (the edge or center a node outside a layout keeps its distance to, with stretch and scale), how a frame places its children (free, row, column or grid, with wrap, justify, align, gap and padding), fill and text color, corner radius, opacity, text content, size, font and alignment, the image file, and **Behaviour** (button, toggle, slider, list, scroll area or text input, with its action and field). Below them every line of the node as text.
 - **Library**: Panel, Text, Image, Button, Toggle, Slider, Progress bar, Text input, List, Scroll area and the project's components. Click one to add it to the selection, or drag it onto the preview. **Make component** moves a selected frame to `ui/components/<name>.ui` and leaves a `use` in its place.
 - **Values**: fake view model values so lists and bound texts show (`art/ui/samples/<screen>.values`, not shipped). **From a running game** lists the games and editors playing this project; **Take values** copies the view model that game has bound to the screen, and **Follow** keeps doing it while the game runs.
 
