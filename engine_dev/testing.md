@@ -71,6 +71,7 @@ Inside one process: `sandbox.exe --bot --exit-tick 900 --shadow --rewind-test --
 
 - Every build runs `tools/ci_test.ps1`: unit tests (`detmath-bits`), a replay of the fixed input recordings `samples/*/replays/*.rec` with `--replay-inputs --hash-log` (`REPLAY ok`), and a headless `mp_test` (1+3, 900 ticks).
 - The final `compare` job runs `tools/ci_compare.ps1`, which compares `detmath-bits` and the per-tick hash logs of every build with `windows-msvc`. When they differ, it shows the first tick that differs and fails.
+- `windows-msvc` and the Linux front end job also build `Export` for both samples. A shipping exe over the 5 MB budget fails the job, one above 4.5 MB adds a warning, and `tools/size_report.ps1` prints the size per library and module in the run summary and the artifact (`size-report.txt`).
 - To run the same locally: `powershell -ExecutionPolicy Bypass -File tools\ci_test.ps1 -Bin build\windows\Release\bin -Name windows-msvc`, then `tools\ci_compare.ps1 -Dir build\ci`.
   The Linux and macOS headless build is `cmake -S . -B build/Headless -G Ninja -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_COMPILER=clang++` → `cmake --build build/Headless --target sandbox_headless mealkit_tests`.
 - **When you change the simulation result on purpose** (physics, game rules, tuning, scenes, bot input), the recordings no longer match and CI and the "Committed replays" step of `check.ps1` fail.

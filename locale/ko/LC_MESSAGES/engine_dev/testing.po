@@ -323,6 +323,9 @@ msgstr ""
 "마지막 `compare` 작업의 `tools/ci_compare.ps1`이 모든 빌드의 `detmath-bits`와 틱별 해시 로그를 "
 "`windows-msvc`와 비교한다. 다르면 처음 갈라진 틱을 보여 주고 실패한다."
 
+msgid "`windows-msvc` and the Linux front end job also build `Export` for both samples. A shipping exe over the 5 MB budget fails the job, one above 4.5 MB adds a warning, and `tools/size_report.ps1` prints the size per library and module in the run summary and the artifact (`size-report.txt`)."
+msgstr "`windows-msvc`와 Linux 프론트엔드 잡은 두 샘플의 `Export`도 빌드한다. 출시 실행 파일이 예산 5 MB를 넘으면 잡이 실패하고, 4.5 MB를 넘으면 경고가 붙으며, `tools/size_report.ps1`이 라이브러리와 모듈별 크기를 실행 요약과 아티팩트(`size-report.txt`)에 남긴다."
+
 msgid ""
 "To run the same locally: `powershell -ExecutionPolicy Bypass -File "
 "tools\\ci_test.ps1 -Bin build\\windows\\Release\\bin -Name windows-msvc`, then "
