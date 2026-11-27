@@ -64,3 +64,5 @@ build\windows\Release\bin\<game>.exe --pack build\cook\<game>.pak
 With a pack, the game sees only what's in it, so a missing asset shows up here the same way it would for players. The editor always uses the files in `assets/`.
 
 The executable size budget is 5 MB on every platform, without assets.
+
+To see what takes the space, run `tools\size_report.ps1` of the engine after an export (`-Project <project folder>` for your game). It reads the linker map the export writes beside the executable and lists the size of each library and module (Windows and Linux).

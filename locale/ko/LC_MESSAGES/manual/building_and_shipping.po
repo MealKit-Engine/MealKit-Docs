@@ -163,3 +163,6 @@ msgstr "팩이 있으면 게임은 팩 안의 것만 보므로, 빠진 에셋은
 msgid "The executable size budget is 5 MB on every platform, without assets."
 msgstr "실행 파일 예산은 모든 플랫폼에서 에셋을 빼고 5 MB다."
 
+msgid "To see what takes the space, run `tools\\size_report.ps1` of the engine after an export (`-Project <project folder>` for your game). It reads the linker map the export writes beside the executable and lists the size of each library and module (Windows and Linux)."
+msgstr "무엇이 용량을 차지하는지 보려면 익스포트한 뒤 엔진의 `tools\\size_report.ps1`을 실행한다(게임은 `-Project <프로젝트 폴더>`). 익스포트가 실행 파일 옆에 쓰는 링커 맵을 읽어 라이브러리와 모듈별 크기를 보여 준다(Windows와 Linux)."
+
