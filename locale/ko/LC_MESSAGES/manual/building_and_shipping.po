@@ -147,6 +147,9 @@ msgstr "코드에서만 이름을 쓰는 에셋(예: 튜닝 필드의 기본값)
 msgid "Cook: .../view/ViewTuning.h names assets/models/characters/rig_figure.glb, which nothing else references - not packed (add it to packInclude in Project Settings)\n"
 msgstr "Cook: .../view/ViewTuning.h names assets/models/characters/rig_figure.glb, which nothing else references - not packed (add it to packInclude in Project Settings)\n"
 
+msgid "If your game reads its own data from a folder outside `assets/`, list that folder in **Project folders outside assets to pack as they are** (`packFolders`). Every file in it goes into the pack, and assets its text files name by path are included too. Read those files with the engine's file functions (`mealkit/platform/Paths.h`: `findAsset`, `readTextFile`, `listFiles`, `listDirectories`); `std::filesystem` doesn't see inside a pack. The folder must be inside the project and can't be `assets`, `build` or `export`."
+msgstr "게임이 `assets/` 밖의 폴더에서 자체 데이터를 읽는다면, 그 폴더를 **그대로 팩에 넣을 assets 밖의 프로젝트 폴더**(`packFolders`)에 적는다. 폴더의 모든 파일이 팩에 들어가고, 그 안의 텍스트 파일이 경로로 가리키는 에셋도 함께 들어간다. 이 파일들은 엔진의 파일 함수(`mealkit/platform/Paths.h`: `findAsset`, `readTextFile`, `listFiles`, `listDirectories`)로 읽는다. `std::filesystem`은 팩 안을 보지 못한다. 폴더는 프로젝트 안에 있어야 하며 `assets`, `build`, `export`는 쓸 수 없다."
+
 msgid "To check the cooked game without exporting, cook and play it from a development build:"
 msgstr "내보내지 않고 쿡된 게임을 확인하려면 개발 빌드에서 쿡하고 실행한다:"
 

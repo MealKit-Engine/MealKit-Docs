@@ -197,6 +197,25 @@ Epic's terms do not allow the EOS SDK in the repository either. EOS lobbies and 
 - Players can turn **Crossplay** off in the gameplay settings. They then only meet players on the same operating system: LAN rooms on other systems are hidden, and joining one is refused. Either side turning it off is enough.
 - Joining a match only needs the simulation data to match. Model files count only by their physics hulls, so textures, materials and per-platform cooking don't split players.
 
+(browser-multiplayer)=
+## Browser multiplayer
+
+A browser has no UDP, so players of a web build meet on a **relay server**: `tools/relay.py` in the engine folder (Python 3.8 or later, nothing to install). The relay passes the packets of one room's players to each other; the host is still one of the players.
+
+```bash
+python3 tools/relay.py                                                        # this PC only, ws://127.0.0.1:27020
+python3 tools/relay.py --bind 0.0.0.0 --cert fullchain.pem --key privkey.pem  # public, wss://
+```
+
+- Set `game.relayUrl` in `mealkit.project` to the relay's address (`wss://host:27020`) before exporting. A page served from `localhost` uses `ws://127.0.0.1:27020` when it is empty; any other page has no multiplayer without it. A page served over https can only reach a `wss://` relay.
+- The relay speaks TLS itself with `--cert`/`--key`, or runs without them behind a reverse proxy that does. `--origin https://your.page` limits which pages may connect. Hosting it is up to the game developer.
+- In the game, **host a room** opens one and the page shows its six-digit **room code** in the top right corner while in the lobby; clicking it copies a link. Others type the code into the join screen's address field, or open the link.
+- Page address options: `?host` opens a room, `?room=<code>` joins one, `?autostart=<players>` starts the match when that many are in.
+- Web builds play with web builds and with Linux builds (see the next list). Windows and macOS builds are refused until their simulation has been compared with the browser's.
+- Desktop games use the relay when `game.relayNativeUrl` (a `ws://host:port` address, without TLS) is set, or when started with `--relay <address>`. With `--cert`, add `--plain-port 27021` to the relay for them; both ports share the rooms.
+- With that set, the desktop menu's **host a room** also opens a relay room: its code is in the window title and the host's first chat line. The join screen takes a six-digit code or an IP address as before, and `--host` without `--relay` still opens a direct room.
+- A background tab keeps running (on a Web Worker's timer). A browser may still suspend or close background tabs to save memory or power, so the host keeps the tab in front when it can.
+
 ## Dedicated server
 
 A game developer who wants a host that nobody plays on runs the headless exe as a server and keeps it reachable themself (the engine ships no hosting or matchmaking):

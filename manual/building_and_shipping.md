@@ -54,6 +54,8 @@ An asset that only your code names (for example a default value of a tuning fiel
 Cook: .../view/ViewTuning.h names assets/models/characters/rig_figure.glb, which nothing else references - not packed (add it to packInclude in Project Settings)
 ```
 
+If your game reads its own data from a folder outside `assets/`, list that folder in **Project folders outside assets to pack as they are** (`packFolders`). Every file in it goes into the pack, and assets its text files name by path are included too. Read those files with the engine's file functions (`mealkit/platform/Paths.h`: `findAsset`, `readTextFile`, `listFiles`, `listDirectories`); `std::filesystem` doesn't see inside a pack. The folder must be inside the project and can't be `assets`, `build` or `export`.
+
 To check the cooked game without exporting, cook and play it from a development build:
 
 ```bat

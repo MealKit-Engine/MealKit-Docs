@@ -373,6 +373,39 @@ msgstr "플레이어는 게임플레이 설정에서 **크로스플레이**를 �
 msgid "Joining a match only needs the simulation data to match. Model files count only by their physics hulls, so textures, materials and per-platform cooking don't split players."
 msgstr "매치에 참가하려면 시뮬레이션 데이터만 같으면 됩니다. 모델 파일은 물리 헐만 비교하므로 텍스처, 머티리얼, 플랫폼별 쿠킹이 달라도 함께할 수 있습니다."
 
+msgid "Browser multiplayer"
+msgstr "브라우저 멀티플레이"
+
+msgid "A browser has no UDP, so players of a web build meet on a **relay server**: `tools/relay.py` in the engine folder (Python 3.8 or later, nothing to install). The relay passes the packets of one room's players to each other; the host is still one of the players."
+msgstr "브라우저에는 UDP가 없으므로 웹 빌드의 플레이어들은 **중계 서버**에서 만난다: 엔진 폴더의 `tools/relay.py`(Python 3.8 이상, 따로 설치할 것 없음). 중계 서버는 한 방에 있는 플레이어들의 패킷을 서로에게 전달한다. 방장은 여전히 플레이어 중 한 명이다."
+
+msgid "python3 tools/relay.py                                                        # this PC only, ws://127.0.0.1:27020\npython3 tools/relay.py --bind 0.0.0.0 --cert fullchain.pem --key privkey.pem  # public, wss://\n"
+msgstr "python3 tools/relay.py                                                        # this PC only, ws://127.0.0.1:27020\npython3 tools/relay.py --bind 0.0.0.0 --cert fullchain.pem --key privkey.pem  # public, wss://\n"
+
+msgid "Set `game.relayUrl` in `mealkit.project` to the relay's address (`wss://host:27020`) before exporting. A page served from `localhost` uses `ws://127.0.0.1:27020` when it is empty; any other page has no multiplayer without it. A page served over https can only reach a `wss://` relay."
+msgstr "내보내기 전에 `mealkit.project`의 `game.relayUrl`에 중계 서버 주소(`wss://호스트:27020`)를 적는다. 비어 있으면 `localhost`에서 연 페이지는 `ws://127.0.0.1:27020`을 쓰고, 그 밖의 페이지는 멀티플레이가 안 된다. https로 연 페이지는 `wss://` 중계 서버에만 접속할 수 있다."
+
+msgid "The relay speaks TLS itself with `--cert`/`--key`, or runs without them behind a reverse proxy that does. `--origin https://your.page` limits which pages may connect. Hosting it is up to the game developer."
+msgstr "중계 서버는 `--cert`/`--key`로 직접 TLS를 처리하거나, TLS를 대신하는 리버스 프록시 뒤에서 인증서 없이 실행한다. `--origin https://your.page`로 접속할 수 있는 페이지를 제한한다. 서버 호스팅은 게임 개발자의 몫이다."
+
+msgid "In the game, **host a room** opens one and the page shows its six-digit **room code** in the top right corner while in the lobby; clicking it copies a link. Others type the code into the join screen's address field, or open the link."
+msgstr "게임에서 **방 만들기**를 하면 방이 열리고, 로비에 있는 동안 페이지 오른쪽 위에 여섯 자리 **방 코드**가 보인다. 누르면 링크가 복사된다. 다른 사람은 참가 화면의 주소 칸에 코드를 입력하거나 링크를 연다."
+
+msgid "Page address options: `?host` opens a room, `?room=<code>` joins one, `?autostart=<players>` starts the match when that many are in."
+msgstr "페이지 주소 옵션: `?host`는 방을 만들고, `?room=<코드>`는 참가하며, `?autostart=<인원>`은 그만큼 모이면 매치를 시작한다."
+
+msgid "Web builds play with web builds and with Linux builds (see the next list). Windows and macOS builds are refused until their simulation has been compared with the browser's."
+msgstr "웹 빌드는 웹 빌드, 그리고 Linux 빌드와 함께 할 수 있다(다음 목록 참고). Windows와 macOS 빌드는 시뮬레이션을 브라우저와 비교 검증하기 전까지 접속이 거부된다."
+
+msgid "Desktop games use the relay when `game.relayNativeUrl` (a `ws://host:port` address, without TLS) is set, or when started with `--relay <address>`. With `--cert`, add `--plain-port 27021` to the relay for them; both ports share the rooms."
+msgstr "데스크톱 게임은 `game.relayNativeUrl`(TLS 없는 `ws://호스트:포트` 주소)을 설정했거나 `--relay <주소>`로 실행하면 중계 서버를 쓴다. `--cert`를 쓰는 중계 서버에는 데스크톱용으로 `--plain-port 27021`을 추가한다. 두 포트는 방을 공유한다."
+
+msgid "With that set, the desktop menu's **host a room** also opens a relay room: its code is in the window title and the host's first chat line. The join screen takes a six-digit code or an IP address as before, and `--host` without `--relay` still opens a direct room."
+msgstr "이렇게 설정하면 데스크톱 메뉴의 **방 만들기**도 중계 방을 연다. 코드는 창 제목과 방장의 첫 채팅 줄에 나온다. 참가 화면은 여섯 자리 코드나 예전처럼 IP 주소를 받고, `--relay` 없는 `--host`는 그대로 직접 접속 방을 연다."
+
+msgid "A background tab keeps running (on a Web Worker's timer). A browser may still suspend or close background tabs to save memory or power, so the host keeps the tab in front when it can."
+msgstr "백그라운드 탭도 계속 실행된다(Web Worker의 타이머 사용). 다만 브라우저가 메모리나 전력을 아끼려고 백그라운드 탭을 멈추거나 닫을 수 있으므로, 방장은 가능하면 탭을 앞에 둔다."
+
 msgid "Dedicated server"
 msgstr "전용 서버"
 
